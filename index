@@ -1,0 +1,3082 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>Hella Skillz | Turn What You Know Into What You're Worth</title>
+
+  <meta
+    name="description"
+    content="Hella Skillz is the practical guide to identifying, stacking, packaging, and monetizing the skills you already have."
+  />
+
+  <!--
+  ==========================================================
+  JUPITER'S LAB / HELLA SKILLZ LANDING PAGE
+  ==========================================================
+
+  CREATE AN /assets FOLDER.
+
+  Suggested image names:
+
+  assets/hella-skillz-cover.png
+      = your full Hella Skillz book cover
+
+  assets/hella-skillz-devices.png
+      = Kindle + tablet + phone mockup
+
+  assets/jlab-chrome-logo.png
+      = Jupiter's Lab chrome atom logo
+
+  assets/chrome-space-bg.jpg
+      = black star field with liquid chrome corners
+
+  Optional:
+  assets/jey-photo.jpg
+      = professional photo of you for About section
+
+  Then update the purchase links below:
+      https://YOUR-CHECKOUT-LINK.com
+
+  ==========================================================
+  -->
+
+  <style>
+    /* =========================================================
+       ROOT / BRAND SYSTEM
+       ========================================================= */
+
+    :root {
+      --black: #050505;
+      --black-soft: #0b0b0d;
+      --charcoal: #151518;
+      --charcoal-light: #202024;
+
+      --white: #ffffff;
+      --pearl: #f5f5f0;
+
+      --lavender: #b494d8;
+      --lavender-light: #d5baf5;
+      --lavender-dark: #8f6eb9;
+
+      --teal: #3dbfb8;
+
+      --border: rgba(255, 255, 255, 0.12);
+      --border-lavender: rgba(180, 148, 216, 0.38);
+
+      --text-muted: rgba(255, 255, 255, 0.67);
+
+      --page-width: 1240px;
+      --section-padding: 120px;
+      --radius-lg: 32px;
+      --radius-md: 22px;
+      --radius-sm: 14px;
+
+      --transition: 280ms cubic-bezier(.2,.8,.2,1);
+    }
+
+    /* =========================================================
+       RESET
+       ========================================================= */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Helvetica,
+        Arial,
+        sans-serif;
+
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    ::selection {
+      background: var(--lavender);
+      color: var(--black);
+    }
+
+    /* =========================================================
+       GLOBAL UTILITIES
+       ========================================================= */
+
+    .container {
+      width: min(calc(100% - 40px), var(--page-width));
+      margin-inline: auto;
+    }
+
+    .section {
+      position: relative;
+      padding: var(--section-padding) 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+
+      margin-bottom: 24px;
+
+      color: var(--lavender-light);
+
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: var(--lavender);
+    }
+
+    .section-title {
+      max-width: 900px;
+
+      font-size: clamp(2.8rem, 6vw, 6rem);
+      font-weight: 800;
+      line-height: 0.97;
+      letter-spacing: -0.06em;
+    }
+
+    .section-copy {
+      max-width: 700px;
+      margin-top: 28px;
+
+      color: var(--text-muted);
+
+      font-size: clamp(1rem, 1.8vw, 1.25rem);
+      line-height: 1.65;
+    }
+
+    .lavender {
+      color: var(--lavender);
+    }
+
+    .muted {
+      color: var(--text-muted);
+    }
+
+    .button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+
+      min-height: 56px;
+      padding: 0 28px;
+
+      border: 1px solid transparent;
+      border-radius: 999px;
+
+      font-weight: 800;
+      font-size: 0.98rem;
+
+      transition:
+        transform var(--transition),
+        background var(--transition),
+        color var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition);
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+    }
+
+    .button-primary {
+      background: var(--lavender);
+      color: var(--black);
+
+      box-shadow:
+        0 18px 60px rgba(180, 148, 216, 0.2);
+    }
+
+    .button-primary:hover {
+      background: var(--lavender-light);
+
+      box-shadow:
+        0 22px 70px rgba(180, 148, 216, 0.32);
+    }
+
+    .button-secondary {
+      color: var(--white);
+      border-color: var(--border);
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(12px);
+    }
+
+    .button-secondary:hover {
+      border-color: var(--lavender);
+      background: rgba(180,148,216,0.08);
+    }
+
+    .button-arrow {
+      font-size: 1.2rem;
+      transition: transform var(--transition);
+    }
+
+    .button:hover .button-arrow {
+      transform: translateX(4px);
+    }
+
+    /* =========================================================
+       AMBIENT BACKGROUND
+       ========================================================= */
+
+    .ambient {
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+      pointer-events: none;
+
+      background:
+        radial-gradient(
+          circle at 78% 10%,
+          rgba(180,148,216,0.08),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 10% 55%,
+          rgba(61,191,184,0.035),
+          transparent 24%
+        ),
+        var(--black);
+    }
+
+    .stars {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      opacity: 0.25;
+      pointer-events: none;
+
+      background-image:
+        radial-gradient(#fff 0.7px, transparent 0.7px);
+
+      background-size: 52px 52px;
+    }
+
+    /* =========================================================
+       NAV
+       ========================================================= */
+
+    .nav-wrap {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+
+      z-index: 1000;
+
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(5,5,5,0.94),
+          rgba(5,5,5,0.62),
+          transparent
+        );
+
+      transition: background var(--transition);
+    }
+
+    .nav-wrap.scrolled {
+      background: rgba(5,5,5,0.88);
+      backdrop-filter: blur(18px);
+
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .nav {
+      min-height: 82px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+
+      line-height: 1;
+    }
+
+    .brand-main {
+      font-size: 1rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .brand-sub {
+      margin-top: 7px;
+
+      color: var(--lavender);
+
+      font-size: 0.66rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+
+      color: rgba(255,255,255,0.76);
+
+      font-size: 0.9rem;
+      font-weight: 650;
+    }
+
+    .nav-links a {
+      transition: color var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--white);
+    }
+
+    .nav-buy {
+      min-height: 44px;
+      padding-inline: 22px;
+    }
+
+    /* =========================================================
+       HERO
+       ========================================================= */
+
+    .hero {
+      min-height: 100svh;
+
+      display: flex;
+      align-items: center;
+
+      padding: 140px 0 90px;
+
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(420px, 0.8fr);
+      align-items: center;
+      gap: 58px;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 3;
+    }
+
+    .hero-kicker {
+      margin-bottom: 25px;
+
+      color: var(--lavender);
+
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      max-width: 780px;
+
+      font-size: clamp(4.3rem, 8.8vw, 9rem);
+      font-weight: 900;
+      letter-spacing: -0.075em;
+      line-height: 0.77;
+      text-transform: uppercase;
+    }
+
+    .hero h1 .skillz {
+      display: block;
+
+      color: var(--lavender);
+
+      font-weight: 350;
+      letter-spacing: -0.05em;
+    }
+
+    .hero-tagline {
+      max-width: 650px;
+
+      margin-top: 40px;
+
+      font-size: clamp(1.45rem, 2.5vw, 2.35rem);
+      font-weight: 700;
+      letter-spacing: -0.035em;
+      line-height: 1.08;
+    }
+
+    .hero-tagline span {
+      color: var(--lavender);
+    }
+
+    .hero-description {
+      max-width: 610px;
+
+      margin-top: 25px;
+
+      color: var(--text-muted);
+
+      font-size: 1.08rem;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+
+      margin-top: 36px;
+    }
+
+    .hero-note {
+      margin-top: 17px;
+
+      color: rgba(255,255,255,0.47);
+
+      font-size: 0.82rem;
+    }
+
+    .hero-art {
+      position: relative;
+
+      min-height: 670px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-orbit {
+      position: absolute;
+
+      width: 610px;
+      height: 610px;
+
+      border: 1px solid rgba(180,148,216,0.14);
+      border-radius: 50%;
+
+      animation: orbit-spin 25s linear infinite;
+    }
+
+    .hero-orbit::before {
+      content: "";
+
+      position: absolute;
+
+      top: -5px;
+      left: 50%;
+
+      width: 10px;
+      height: 10px;
+
+      border-radius: 50%;
+
+      background: var(--lavender);
+
+      box-shadow:
+        0 0 20px var(--lavender),
+        0 0 60px rgba(180,148,216,0.6);
+    }
+
+    @keyframes orbit-spin {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .hero-glow {
+      position: absolute;
+
+      width: 420px;
+      height: 420px;
+
+      border-radius: 50%;
+
+      background: rgba(180,148,216,0.18);
+      filter: blur(100px);
+    }
+
+    .hero-book {
+      position: relative;
+      z-index: 4;
+
+      width: min(88%, 510px);
+
+      transform:
+        perspective(1200px)
+        rotateY(-8deg)
+        rotateX(2deg);
+
+      filter:
+        drop-shadow(0 35px 55px rgba(0,0,0,0.72))
+        drop-shadow(0 0 50px rgba(180,148,216,0.16));
+
+      animation: book-float 6s ease-in-out infinite;
+    }
+
+    @keyframes book-float {
+      0%,
+      100% {
+        transform:
+          perspective(1200px)
+          rotateY(-8deg)
+          rotateX(2deg)
+          translateY(0);
+      }
+
+      50% {
+        transform:
+          perspective(1200px)
+          rotateY(-6deg)
+          rotateX(1deg)
+          translateY(-18px);
+      }
+    }
+
+    .scroll-prompt {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      color: rgba(255,255,255,0.4);
+
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .scroll-line {
+      width: 46px;
+      height: 1px;
+
+      background: linear-gradient(
+        90deg,
+        transparent,
+        var(--lavender)
+      );
+    }
+
+    /* =========================================================
+       MANIFESTO
+       ========================================================= */
+
+    .manifesto {
+      background: var(--pearl);
+      color: var(--black);
+
+      overflow: hidden;
+    }
+
+    .manifesto-grid {
+      display: grid;
+      grid-template-columns: 0.72fr 1.28fr;
+      gap: 70px;
+    }
+
+    .manifesto-label {
+      color: #766286;
+
+      font-size: 0.8rem;
+      font-weight: 900;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .manifesto-lines {
+      display: grid;
+      gap: 4px;
+    }
+
+    .manifesto-line {
+      font-size: clamp(2.3rem, 5.5vw, 5.8rem);
+      font-weight: 850;
+      letter-spacing: -0.06em;
+      line-height: 1.02;
+    }
+
+    .manifesto-line.light {
+      color: rgba(0,0,0,0.22);
+    }
+
+    .manifesto-bottom {
+      margin-top: 70px;
+      padding-top: 45px;
+
+      border-top: 1px solid rgba(0,0,0,0.13);
+
+      font-size: clamp(1.7rem, 3vw, 3.25rem);
+      font-weight: 750;
+      letter-spacing: -0.045em;
+      line-height: 1.1;
+    }
+
+    .manifesto-bottom span {
+      color: #795c99;
+    }
+
+    /* =========================================================
+       SKILLS
+       ========================================================= */
+
+    .skills-section {
+      overflow: hidden;
+    }
+
+    .skills-header {
+      max-width: 930px;
+      margin-bottom: 65px;
+    }
+
+    .skill-cloud {
+      position: relative;
+
+      min-height: 670px;
+
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+
+      overflow: hidden;
+
+      background:
+        radial-gradient(
+          circle at 50% 50%,
+          rgba(180,148,216,0.11),
+          transparent 34%
+        ),
+        linear-gradient(
+          145deg,
+          #09090b,
+          #040405
+        );
+    }
+
+    .skill-cloud::before {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      background-image:
+        linear-gradient(
+          rgba(255,255,255,0.025) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,0.025) 1px,
+          transparent 1px
+        );
+
+      background-size: 60px 60px;
+
+      mask-image:
+        radial-gradient(circle, black, transparent 74%);
+    }
+
+    .skill-word {
+      position: absolute;
+
+      padding: 11px 20px;
+
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.18);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,0.16),
+          rgba(255,255,255,0.04)
+        );
+
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.24),
+        0 18px 50px rgba(0,0,0,0.25);
+
+      backdrop-filter: blur(10px);
+
+      color: #ececec;
+
+      font-weight: 760;
+      letter-spacing: -0.02em;
+
+      animation:
+        skill-float 6s ease-in-out infinite;
+    }
+
+    .skill-word:nth-child(2) { animation-delay: -1s; }
+    .skill-word:nth-child(3) { animation-delay: -2s; }
+    .skill-word:nth-child(4) { animation-delay: -3s; }
+    .skill-word:nth-child(5) { animation-delay: -4s; }
+    .skill-word:nth-child(6) { animation-delay: -5s; }
+
+    @keyframes skill-float {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-14px);
+      }
+    }
+
+    .skill-center {
+      position: absolute;
+      inset: 50% auto auto 50%;
+
+      width: min(88%, 670px);
+
+      transform: translate(-50%, -50%);
+
+      text-align: center;
+    }
+
+    .skill-center p {
+      color: var(--lavender);
+
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .skill-center h3 {
+      margin-top: 20px;
+
+      font-size: clamp(2.9rem, 7vw, 6.5rem);
+      font-weight: 800;
+      letter-spacing: -0.065em;
+      line-height: 0.95;
+    }
+
+    .skill-word.one {
+      top: 12%;
+      left: 8%;
+    }
+
+    .skill-word.two {
+      top: 22%;
+      right: 8%;
+    }
+
+    .skill-word.three {
+      bottom: 18%;
+      left: 11%;
+    }
+
+    .skill-word.four {
+      bottom: 12%;
+      right: 12%;
+    }
+
+    .skill-word.five {
+      top: 7%;
+      left: 45%;
+    }
+
+    .skill-word.six {
+      top: 50%;
+      right: 5%;
+    }
+
+    /* =========================================================
+       INSIDE BOOK
+       ========================================================= */
+
+    .inside {
+      background:
+        linear-gradient(
+          145deg,
+          rgba(180,148,216,0.07),
+          transparent 45%
+        );
+    }
+
+    .inside-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+      gap: 80px;
+    }
+
+    .device-wrap {
+      position: relative;
+    }
+
+    .device-glow {
+      position: absolute;
+
+      width: 70%;
+      aspect-ratio: 1;
+
+      top: 50%;
+      left: 50%;
+
+      transform: translate(-50%, -50%);
+
+      border-radius: 50%;
+
+      background: rgba(180,148,216,0.18);
+
+      filter: blur(120px);
+    }
+
+    .device-image {
+      position: relative;
+      z-index: 2;
+
+      width: 100%;
+    }
+
+    .inside-list {
+      margin-top: 45px;
+
+      display: grid;
+      gap: 0;
+    }
+
+    .inside-item {
+      padding: 22px 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+
+      border-bottom: 1px solid var(--border);
+    }
+
+    .inside-item:first-child {
+      border-top: 1px solid var(--border);
+    }
+
+    .inside-item-number {
+      color: var(--lavender);
+
+      font-size: 0.73rem;
+      font-weight: 900;
+      letter-spacing: 0.15em;
+    }
+
+    .inside-item-name {
+      flex: 1;
+
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+    }
+
+    /* =========================================================
+       PATH
+       ========================================================= */
+
+    .path-section {
+      background: var(--lavender);
+      color: var(--black);
+    }
+
+    .path-section .eyebrow {
+      color: rgba(0,0,0,0.65);
+    }
+
+    .path-section .eyebrow::before {
+      background: rgba(0,0,0,0.65);
+    }
+
+    .path-intro {
+      max-width: 840px;
+    }
+
+    .path-grid {
+      margin-top: 80px;
+
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+
+      border-top: 1px solid rgba(0,0,0,0.22);
+      border-left: 1px solid rgba(0,0,0,0.22);
+    }
+
+    .path-card {
+      min-height: 260px;
+      padding: 30px;
+
+      border-right: 1px solid rgba(0,0,0,0.22);
+      border-bottom: 1px solid rgba(0,0,0,0.22);
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .path-number {
+      font-size: 0.74rem;
+      font-weight: 900;
+      letter-spacing: 0.15em;
+    }
+
+    .path-card h3 {
+      font-size: clamp(1.8rem, 3vw, 3rem);
+      line-height: 0.96;
+      letter-spacing: -0.055em;
+    }
+
+    .path-card p {
+      margin-top: 16px;
+
+      color: rgba(0,0,0,0.7);
+
+      line-height: 1.55;
+    }
+
+    /* =========================================================
+       WHICH ONE
+       ========================================================= */
+
+    .identity-section {
+      background: #08080a;
+    }
+
+    .identity-heading {
+      text-align: center;
+    }
+
+    .identity-heading .section-title {
+      margin-inline: auto;
+    }
+
+    .identity-heading .section-copy {
+      margin-inline: auto;
+    }
+
+    .identity-grid {
+      margin-top: 70px;
+
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .identity-card {
+      position: relative;
+
+      min-height: 310px;
+      padding: 36px;
+
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,0.05),
+          rgba(255,255,255,0.018)
+        );
+
+      overflow: hidden;
+
+      text-align: left;
+      color: var(--white);
+
+      transition:
+        transform var(--transition),
+        border-color var(--transition),
+        background var(--transition);
+    }
+
+    .identity-card:hover {
+      transform: translateY(-6px);
+
+      border-color: var(--border-lavender);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(180,148,216,0.12),
+          rgba(255,255,255,0.025)
+        );
+    }
+
+    .identity-card::after {
+      content: "↗";
+
+      position: absolute;
+
+      right: 28px;
+      bottom: 25px;
+
+      color: var(--lavender);
+
+      font-size: 1.6rem;
+    }
+
+    .identity-number {
+      color: var(--lavender);
+
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+    }
+
+    .identity-card h3 {
+      max-width: 470px;
+
+      margin-top: 70px;
+
+      font-size: clamp(1.55rem, 3vw, 2.75rem);
+      line-height: 1.05;
+      letter-spacing: -0.045em;
+    }
+
+    .identity-result {
+      display: none;
+
+      margin-top: 35px;
+      padding: 25px 30px;
+
+      border: 1px solid var(--border-lavender);
+      border-radius: var(--radius-md);
+
+      background: rgba(180,148,216,0.08);
+    }
+
+    .identity-result.visible {
+      display: block;
+      animation: fade-up 500ms ease both;
+    }
+
+    .identity-result strong {
+      color: var(--lavender-light);
+    }
+
+    @keyframes fade-up {
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* =========================================================
+       QUOTE
+       ========================================================= */
+
+    .quote-section {
+      min-height: 760px;
+
+      display: flex;
+      align-items: center;
+
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          rgba(0,0,0,0.25),
+          rgba(0,0,0,0.45)
+        ),
+        url("assets/chrome-space-bg.jpg")
+        center/cover no-repeat;
+    }
+
+    .quote-wrap {
+      max-width: 1100px;
+      margin-inline: auto;
+
+      text-align: center;
+    }
+
+    .quote-small {
+      margin-bottom: 30px;
+
+      color: var(--lavender);
+
+      font-size: 0.76rem;
+      font-weight: 900;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .quote {
+      font-size: clamp(3.5rem, 9vw, 8.8rem);
+      font-weight: 850;
+      line-height: 0.88;
+      letter-spacing: -0.07em;
+    }
+
+    .quote span {
+      color: var(--lavender);
+    }
+
+    /* =========================================================
+       WHO THIS IS FOR
+       ========================================================= */
+
+    .for-you-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 90px;
+      align-items: start;
+    }
+
+    .sticky-copy {
+      position: sticky;
+      top: 140px;
+    }
+
+    .truth-list {
+      display: grid;
+      gap: 18px;
+    }
+
+    .truth-card {
+      padding: 34px;
+
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+
+      background: rgba(255,255,255,0.025);
+    }
+
+    .truth-card h3 {
+      font-size: 1.35rem;
+      letter-spacing: -0.03em;
+    }
+
+    .truth-card p {
+      margin-top: 12px;
+
+      color: var(--text-muted);
+
+      line-height: 1.65;
+    }
+
+    .truth-icon {
+      width: 36px;
+      height: 36px;
+
+      margin-bottom: 28px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 50%;
+
+      background: rgba(180,148,216,0.13);
+      color: var(--lavender);
+
+      font-weight: 900;
+    }
+
+    /* =========================================================
+       BOOK PREVIEW
+       ========================================================= */
+
+    .preview {
+      background: var(--pearl);
+      color: var(--black);
+    }
+
+    .preview-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 90px;
+      align-items: center;
+    }
+
+    .preview-book {
+      position: relative;
+
+      padding: 55px;
+
+      border-radius: var(--radius-lg);
+
+      background: #08080a;
+
+      overflow: hidden;
+    }
+
+    .preview-book::before {
+      content: "";
+
+      position: absolute;
+
+      width: 300px;
+      height: 300px;
+
+      top: -100px;
+      right: -80px;
+
+      border-radius: 50%;
+
+      background: rgba(180,148,216,0.3);
+
+      filter: blur(90px);
+    }
+
+    .preview-book img {
+      position: relative;
+      z-index: 2;
+
+      max-height: 640px;
+      margin-inline: auto;
+
+      filter: drop-shadow(0 22px 50px rgba(0,0,0,0.6));
+    }
+
+    .preview-copy .section-title {
+      color: var(--black);
+    }
+
+    .preview-copy p {
+      margin-top: 27px;
+
+      max-width: 610px;
+
+      color: rgba(0,0,0,0.68);
+
+      font-size: 1.13rem;
+      line-height: 1.7;
+    }
+
+    .preview-points {
+      margin-top: 36px;
+
+      display: grid;
+      gap: 15px;
+    }
+
+    .preview-point {
+      display: flex;
+      gap: 15px;
+      align-items: flex-start;
+
+      font-weight: 700;
+    }
+
+    .preview-check {
+      flex: 0 0 24px;
+
+      width: 24px;
+      height: 24px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 50%;
+
+      background: var(--black);
+      color: var(--lavender);
+
+      font-size: 0.72rem;
+      font-weight: 900;
+    }
+
+    .preview-copy .button {
+      margin-top: 40px;
+    }
+
+    /* =========================================================
+       AUTHOR
+       ========================================================= */
+
+    .author-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .author-image-wrap {
+      min-height: 640px;
+
+      position: relative;
+
+      border-radius: var(--radius-lg);
+
+      overflow: hidden;
+
+      background:
+        radial-gradient(
+          circle at 50% 35%,
+          rgba(180,148,216,0.32),
+          transparent 36%
+        ),
+        linear-gradient(
+          145deg,
+          #17131b,
+          #050505
+        );
+    }
+
+    .author-image-wrap img {
+      width: 100%;
+      height: 100%;
+      min-height: 640px;
+
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .author-placeholder {
+      position: absolute;
+      inset: 0;
+
+      display: grid;
+      place-items: center;
+
+      padding: 50px;
+
+      text-align: center;
+      color: rgba(255,255,255,0.35);
+
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+
+    .author-copy h2 {
+      max-width: 690px;
+
+      font-size: clamp(2.9rem, 5.5vw, 5.5rem);
+      line-height: 0.95;
+      letter-spacing: -0.06em;
+    }
+
+    .author-story {
+      margin-top: 35px;
+
+      display: grid;
+      gap: 22px;
+
+      color: var(--text-muted);
+
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+
+    .author-signature {
+      margin-top: 35px;
+
+      color: var(--lavender);
+
+      font-weight: 800;
+    }
+
+    /* =========================================================
+       FAQ
+       ========================================================= */
+
+    .faq {
+      background: #08080a;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 0.7fr 1.3fr;
+      gap: 90px;
+    }
+
+    .faq-list {
+      border-top: 1px solid var(--border);
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faq-question {
+      width: 100%;
+      padding: 27px 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+
+      border: 0;
+      background: none;
+
+      color: var(--white);
+
+      text-align: left;
+
+      font-size: 1.07rem;
+      font-weight: 750;
+    }
+
+    .faq-plus {
+      color: var(--lavender);
+
+      font-size: 1.4rem;
+
+      transition: transform var(--transition);
+    }
+
+    .faq-item.open .faq-plus {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+
+      color: var(--text-muted);
+
+      transition: max-height 420ms ease;
+    }
+
+    .faq-answer-inner {
+      padding: 0 45px 28px 0;
+
+      line-height: 1.7;
+    }
+
+    /* =========================================================
+       FINAL CTA
+       ========================================================= */
+
+    .final-cta {
+      position: relative;
+
+      padding: 140px 0;
+
+      overflow: hidden;
+
+      background:
+        radial-gradient(
+          circle at 50% 30%,
+          rgba(180,148,216,0.2),
+          transparent 34%
+        ),
+        var(--black);
+    }
+
+    .final-cta-inner {
+      text-align: center;
+    }
+
+    .final-cta-logo {
+      width: min(270px, 54vw);
+      margin: 0 auto 45px;
+
+      opacity: 0.92;
+    }
+
+    .final-cta h2 {
+      max-width: 1000px;
+      margin-inline: auto;
+
+      font-size: clamp(3.6rem, 8vw, 8.4rem);
+      font-weight: 850;
+      letter-spacing: -0.07em;
+      line-height: 0.87;
+    }
+
+    .final-cta h2 span {
+      color: var(--lavender);
+    }
+
+    .final-cta p {
+      max-width: 600px;
+
+      margin: 35px auto 0;
+
+      color: var(--text-muted);
+
+      font-size: 1.12rem;
+      line-height: 1.65;
+    }
+
+    .final-actions {
+      margin-top: 40px;
+
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+
+    footer {
+      padding: 35px 0;
+
+      border-top: 1px solid var(--border);
+
+      color: rgba(255,255,255,0.45);
+
+      font-size: 0.8rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+    }
+
+    .footer-links a:hover {
+      color: var(--white);
+    }
+
+    /* =========================================================
+       REVEAL ANIMATION
+       ========================================================= */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+
+      transition:
+        opacity 800ms ease,
+        transform 800ms ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================================================
+       MOBILE
+       ========================================================= */
+
+    @media (max-width: 980px) {
+      :root {
+        --section-padding: 90px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-grid,
+      .inside-grid,
+      .for-you-grid,
+      .preview-grid,
+      .author-grid,
+      .faq-grid,
+      .manifesto-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-grid {
+        gap: 20px;
+      }
+
+      .hero-art {
+        min-height: 560px;
+      }
+
+      .hero-book {
+        max-width: 440px;
+      }
+
+      .hero-orbit {
+        width: 500px;
+        height: 500px;
+      }
+
+      .manifesto-grid {
+        gap: 45px;
+      }
+
+      .inside-grid {
+        gap: 55px;
+      }
+
+      .path-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .sticky-copy {
+        position: static;
+      }
+
+      .preview-grid {
+        gap: 55px;
+      }
+
+      .author-grid {
+        gap: 50px;
+      }
+
+      .faq-grid {
+        gap: 45px;
+      }
+    }
+
+    @media (max-width: 680px) {
+      :root {
+        --section-padding: 72px;
+      }
+
+      .container {
+        width: min(calc(100% - 28px), var(--page-width));
+      }
+
+      .nav {
+        min-height: 72px;
+      }
+
+      .nav-buy {
+        min-height: 40px;
+        padding-inline: 17px;
+
+        font-size: 0.82rem;
+      }
+
+      .brand-main {
+        font-size: 0.82rem;
+      }
+
+      .brand-sub {
+        font-size: 0.52rem;
+      }
+
+      .hero {
+        padding: 115px 0 65px;
+      }
+
+      .hero h1 {
+        font-size: clamp(4rem, 20vw, 6.3rem);
+      }
+
+      .hero-tagline {
+        margin-top: 28px;
+
+        font-size: 1.65rem;
+      }
+
+      .hero-description {
+        font-size: 1rem;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .hero-actions .button {
+        width: 100%;
+      }
+
+      .hero-art {
+        min-height: 440px;
+      }
+
+      .hero-book {
+        width: min(90%, 350px);
+      }
+
+      .hero-orbit {
+        width: 385px;
+        height: 385px;
+      }
+
+      .scroll-prompt {
+        display: none;
+      }
+
+      .manifesto-line {
+        font-size: clamp(2.4rem, 13vw, 4.4rem);
+      }
+
+      .skill-cloud {
+        min-height: 600px;
+      }
+
+      .skill-word {
+        padding: 8px 13px;
+
+        font-size: 0.76rem;
+      }
+
+      .skill-word.one {
+        top: 10%;
+        left: 5%;
+      }
+
+      .skill-word.two {
+        top: 20%;
+        right: 5%;
+      }
+
+      .skill-word.three {
+        bottom: 14%;
+        left: 5%;
+      }
+
+      .skill-word.four {
+        bottom: 7%;
+        right: 5%;
+      }
+
+      .skill-word.five {
+        top: 4%;
+        left: 42%;
+      }
+
+      .skill-word.six {
+        top: 62%;
+        right: 4%;
+      }
+
+      .path-grid,
+      .identity-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .path-card {
+        min-height: 210px;
+      }
+
+      .identity-card {
+        min-height: 250px;
+      }
+
+      .identity-card h3 {
+        margin-top: 48px;
+      }
+
+      .quote-section {
+        min-height: 580px;
+      }
+
+      .quote {
+        font-size: clamp(3.8rem, 19vw, 6.2rem);
+      }
+
+      .preview-book {
+        padding: 25px;
+      }
+
+      .author-image-wrap,
+      .author-image-wrap img {
+        min-height: 480px;
+      }
+
+      .final-cta {
+        padding: 100px 0;
+      }
+
+      .final-actions {
+        flex-direction: column;
+      }
+
+      .final-actions .button {
+        width: 100%;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+    }
+
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="ambient"></div>
+  <div class="stars"></div>
+
+  <!-- =======================================================
+       NAVIGATION
+       ======================================================= -->
+
+  <header class="nav-wrap" id="navWrap">
+    <div class="container nav">
+
+      <a href="#top" class="brand" aria-label="Jupiter's Lab home">
+        <span class="brand-main">Jupiter's Lab</span>
+        <span class="brand-sub">Creative Studio</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#inside">Inside the Book</a>
+        <a href="#for-you">Who It's For</a>
+        <a href="#about">About Jey</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <a
+        class="button button-primary nav-buy"
+        href="https://YOUR-CHECKOUT-LINK.com"
+        target="_blank"
+        rel="noopener"
+      >
+        Get Hella Skillz
+      </a>
+
+    </div>
+  </header>
+
+  <main>
+
+    <!-- =====================================================
+         HERO
+         ===================================================== -->
+
+    <section class="hero" id="top">
+
+      <div class="container hero-grid">
+
+        <div class="hero-copy reveal">
+
+          <div class="hero-kicker">
+            Jupiter's Lab Creative Studio Presents
+          </div>
+
+          <h1>
+            Hella
+            <span class="skillz">Skillz</span>
+          </h1>
+
+          <div class="hero-tagline">
+            Turn what you know into
+            <span>what you're worth.</span>
+          </div>
+
+          <p class="hero-description">
+            You probably don't need another skill.
+            You need to understand what the skills you already have
+            are worth, how they work together, and what to build
+            with them.
+          </p>
+
+          <div class="hero-actions">
+
+            <a
+              href="https://YOUR-CHECKOUT-LINK.com"
+              class="button button-primary"
+              target="_blank"
+              rel="noopener"
+            >
+              Get the Ebook
+              <span class="button-arrow">→</span>
+            </a>
+
+            <a
+              href="#inside"
+              class="button button-secondary"
+            >
+              See What's Inside
+            </a>
+
+          </div>
+
+          <div class="hero-note">
+            Digital ebook • Read on your phone, tablet, Kindle, or computer
+          </div>
+
+        </div>
+
+        <div class="hero-art reveal">
+
+          <div class="hero-glow"></div>
+          <div class="hero-orbit"></div>
+
+          <img
+            src="assets/hella-skillz-cover.png"
+            alt="Hella Skillz ebook cover by Jeylechia Kirkland"
+            class="hero-book"
+          />
+
+        </div>
+
+      </div>
+
+      <div class="scroll-prompt">
+        Explore
+        <span class="scroll-line"></span>
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         MANIFESTO
+         ===================================================== -->
+
+    <section class="section manifesto">
+
+      <div class="container">
+
+        <div class="manifesto-grid">
+
+          <div class="manifesto-label reveal">
+            The old formula
+          </div>
+
+          <div class="manifesto-lines">
+
+            <div class="manifesto-line light reveal">
+              Get a degree.
+            </div>
+
+            <div class="manifesto-line light reveal">
+              Get experience.
+            </div>
+
+            <div class="manifesto-line light reveal">
+              Work hard.
+            </div>
+
+            <div class="manifesto-line reveal">
+              Hope somebody notices.
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="manifesto-bottom reveal">
+          Nobody taught you how to identify,
+          combine and package what you already know
+          into something <span>valuable.</span>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SKILLS
+         ===================================================== -->
+
+    <section class="section skills-section">
+
+      <div class="container">
+
+        <div class="skills-header reveal">
+
+          <div class="eyebrow">
+            Your skill stack
+          </div>
+
+          <h2 class="section-title">
+            Your skills were
+            never random.
+          </h2>
+
+          <p class="section-copy">
+            The things you've learned across jobs, side hustles,
+            life, curiosity and experience may look disconnected
+            on paper. Hella Skillz helps you see the pattern.
+          </p>
+
+        </div>
+
+        <div class="skill-cloud reveal">
+
+          <div class="skill-word one">Management</div>
+          <div class="skill-word two">Technology</div>
+          <div class="skill-word three">Customer Experience</div>
+          <div class="skill-word four">Creativity</div>
+          <div class="skill-word five">Strategy</div>
+          <div class="skill-word six">Leadership</div>
+
+          <div class="skill-center">
+
+            <p>The missing piece</p>
+
+            <h3>
+              You just never
+              saw the system.
+            </h3>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         INSIDE THE BOOK
+         ===================================================== -->
+
+    <section class="section inside" id="inside">
+
+      <div class="container inside-grid">
+
+        <div class="device-wrap reveal">
+
+          <div class="device-glow"></div>
+
+          <img
+            src="assets/hella-skillz-devices.png"
+            alt="Hella Skillz displayed on ebook devices"
+            class="device-image"
+          />
+
+        </div>
+
+        <div class="reveal">
+
+          <div class="eyebrow">
+            Inside Hella Skillz
+          </div>
+
+          <h2 class="section-title">
+            This isn't about
+            finding another
+            thing to learn.
+          </h2>
+
+          <p class="section-copy">
+            It's about learning how to work with what
+            you've already built.
+          </p>
+
+          <div class="inside-list">
+
+            <div class="inside-item">
+              <span class="inside-item-number">01</span>
+              <span class="inside-item-name">
+                Separate your skills from your job titles
+              </span>
+            </div>
+
+            <div class="inside-item">
+              <span class="inside-item-number">02</span>
+              <span class="inside-item-name">
+                Find the pattern in your skill stack
+              </span>
+            </div>
+
+            <div class="inside-item">
+              <span class="inside-item-number">03</span>
+              <span class="inside-item-name">
+                Give your skills a direction
+              </span>
+            </div>
+
+            <div class="inside-item">
+              <span class="inside-item-number">04</span>
+              <span class="inside-item-name">
+                Turn skills into an actual offer
+              </span>
+            </div>
+
+            <div class="inside-item">
+              <span class="inside-item-number">05</span>
+              <span class="inside-item-name">
+                Protect your time, energy and scope
+              </span>
+            </div>
+
+            <div class="inside-item">
+              <span class="inside-item-number">06</span>
+              <span class="inside-item-name">
+                Build something that can grow beyond you
+              </span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         TRANSFORMATION PATH
+         ===================================================== -->
+
+    <section class="section path-section">
+
+      <div class="container">
+
+        <div class="path-intro reveal">
+
+          <div class="eyebrow">
+            The shift
+          </div>
+
+          <h2 class="section-title">
+            Skills are useful.
+            Structure makes them valuable.
+          </h2>
+
+        </div>
+
+        <div class="path-grid">
+
+          <article class="path-card reveal">
+            <span class="path-number">01</span>
+            <div>
+              <h3>See your skills.</h3>
+              <p>
+                Stop describing yourself only by the roles
+                somebody else hired you to perform.
+              </p>
+            </div>
+          </article>
+
+          <article class="path-card reveal">
+            <span class="path-number">02</span>
+            <div>
+              <h3>Stack your skills.</h3>
+              <p>
+                Find the combinations that make the way you
+                think and work different.
+              </p>
+            </div>
+          </article>
+
+          <article class="path-card reveal">
+            <span class="path-number">03</span>
+            <div>
+              <h3>Choose a direction.</h3>
+              <p>
+                Stop trying to monetize every ability
+                you happen to possess.
+              </p>
+            </div>
+          </article>
+
+          <article class="path-card reveal">
+            <span class="path-number">04</span>
+            <div>
+              <h3>Package the value.</h3>
+              <p>
+                Turn what you can do into something another
+                person can understand and buy.
+              </p>
+            </div>
+          </article>
+
+          <article class="path-card reveal">
+            <span class="path-number">05</span>
+            <div>
+              <h3>Protect the work.</h3>
+              <p>
+                Learn where your offer ends before
+                scope creep decides for you.
+              </p>
+            </div>
+          </article>
+
+          <article class="path-card reveal">
+            <span class="path-number">06</span>
+            <div>
+              <h3>Build the system.</h3>
+              <p>
+                Move from selling random skills to building
+                something that can create repeatable value.
+              </p>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         WHICH ONE ARE YOU?
+         ===================================================== -->
+
+    <section class="section identity-section">
+
+      <div class="container">
+
+        <div class="identity-heading reveal">
+
+          <div class="eyebrow">
+            Pick the one that sounds familiar
+          </div>
+
+          <h2 class="section-title">
+            Which one are you?
+          </h2>
+
+          <p class="section-copy">
+            Tap the statement that sounds most like where you are
+            right now.
+          </p>
+
+        </div>
+
+        <div class="identity-grid">
+
+          <button
+            class="identity-card reveal"
+            data-message="You don't need to become more talented. You need a structure that turns what you already know into something clear enough to sell."
+          >
+            <span class="identity-number">01</span>
+
+            <h3>
+              “I know how to do a lot of things.
+              I just don't know what to sell.”
+            </h3>
+          </button>
+
+          <button
+            class="identity-card reveal"
+            data-message="Being underpaid is not always about working harder. Sometimes the problem is that your value has never been translated into an offer, position or system."
+          >
+            <span class="identity-number">02</span>
+
+            <h3>
+              “I know I'm capable of more than
+              what I'm getting paid for.”
+            </h3>
+          </button>
+
+          <button
+            class="identity-card reveal"
+            data-message="Knowing how to perform a job and knowing how to turn those abilities into a business are different skills. Hella Skillz helps you bridge that gap."
+          >
+            <span class="identity-number">03</span>
+
+            <h3>
+              “I'm good at my job, but I don't
+              know what that becomes outside of work.”
+            </h3>
+          </button>
+
+          <button
+            class="identity-card reveal"
+            data-message="You may not need another business idea. You may need to stop starting over and build around the skills and value that have already followed you everywhere."
+          >
+            <span class="identity-number">04</span>
+
+            <h3>
+              “I've tried different ideas, but
+              nothing feels like the thing.”
+            </h3>
+          </button>
+
+        </div>
+
+        <div
+          class="identity-result"
+          id="identityResult"
+          aria-live="polite"
+        >
+          <strong>That is exactly what this book addresses.</strong>
+
+          <span id="identityMessage"></span>
+
+          <div style="margin-top:22px;">
+            <a
+              href="https://YOUR-CHECKOUT-LINK.com"
+              class="button button-primary"
+              target="_blank"
+              rel="noopener"
+            >
+              Get Hella Skillz
+              <span class="button-arrow">→</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         QUOTE
+         ===================================================== -->
+
+    <section class="section quote-section">
+
+      <div class="container quote-wrap reveal">
+
+        <div class="quote-small">
+          Hella Skillz
+        </div>
+
+        <div class="quote">
+          Stop renting
+          <span>your mind.</span>
+          Own the code.
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         WHO THIS BOOK IS FOR
+         ===================================================== -->
+
+    <section class="section" id="for-you">
+
+      <div class="container for-you-grid">
+
+        <div class="sticky-copy reveal">
+
+          <div class="eyebrow">
+            Who this is for
+          </div>
+
+          <h2 class="section-title">
+            You're not starting from zero.
+          </h2>
+
+          <p class="section-copy">
+            That's the point.
+          </p>
+
+        </div>
+
+        <div class="truth-list">
+
+          <article class="truth-card reveal">
+
+            <div class="truth-icon">01</div>
+
+            <h3>
+              You've built experience across multiple lanes.
+            </h3>
+
+            <p>
+              Your resume may look scattered, but the way you think,
+              solve problems and execute has a pattern.
+            </p>
+
+          </article>
+
+          <article class="truth-card reveal">
+
+            <div class="truth-icon">02</div>
+
+            <h3>
+              You're tired of being “the talented one.”
+            </h3>
+
+            <p>
+              People know you can do everything, which often means
+              everybody asks you for everything. That's not a business model.
+            </p>
+
+          </article>
+
+          <article class="truth-card reveal">
+
+            <div class="truth-icon">03</div>
+
+            <h3>
+              You want income that reflects what you actually know.
+            </h3>
+
+            <p>
+              Not another random side hustle. Something connected
+              to the knowledge, experience and abilities you've already earned.
+            </p>
+
+          </article>
+
+          <article class="truth-card reveal">
+
+            <div class="truth-icon">04</div>
+
+            <h3>
+              You're done collecting information without direction.
+            </h3>
+
+            <p>
+              You don't need 37 saved courses and another certification.
+              You need a decision about what all of this knowledge is for.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         BOOK PREVIEW / PRODUCT
+         ===================================================== -->
+
+    <section class="section preview">
+
+      <div class="container preview-grid">
+
+        <div class="preview-book reveal">
+
+          <img
+            src="assets/hella-skillz-cover.png"
+            alt="Hella Skillz ebook"
+          />
+
+        </div>
+
+        <div class="preview-copy reveal">
+
+          <div class="eyebrow">
+            The practical guide
+          </div>
+
+          <h2 class="section-title">
+            Keep the skills.
+            Lose the confusion.
+          </h2>
+
+          <p>
+            Hella Skillz was written for people who know they are
+            capable of more but have struggled to explain exactly
+            what they do, what they should build, or how their
+            experience translates into income.
+          </p>
+
+          <div class="preview-points">
+
+            <div class="preview-point">
+              <span class="preview-check">✓</span>
+              <span>
+                Practical language, not business-school jargon
+              </span>
+            </div>
+
+            <div class="preview-point">
+              <span class="preview-check">✓</span>
+              <span>
+                Built around skills you already have
+              </span>
+            </div>
+
+            <div class="preview-point">
+              <span class="preview-check">✓</span>
+              <span>
+                Helps you move from ideas to a clear direction
+              </span>
+            </div>
+
+            <div class="preview-point">
+              <span class="preview-check">✓</span>
+              <span>
+                Designed for builders, multi-skilled people and
+                people who refuse to fit neatly into one title
+              </span>
+            </div>
+
+          </div>
+
+          <a
+            href="https://YOUR-CHECKOUT-LINK.com"
+            class="button button-primary"
+            target="_blank"
+            rel="noopener"
+          >
+            Get Your Copy
+            <span class="button-arrow">→</span>
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         AUTHOR
+         ===================================================== -->
+
+    <section class="section" id="about">
+
+      <div class="container author-grid">
+
+        <div class="author-image-wrap reveal">
+
+          <!--
+          If you add a photo, uncomment this:
+
+          <img
+            src="assets/jey-photo.jpg"
+            alt="Jeylechia Kirkland"
+          />
+
+          Then delete .author-placeholder below.
+          -->
+
+          <div class="author-placeholder">
+            Add your preferred photo here.<br><br>
+
+            Recommended: a clean portrait with you positioned
+            slightly left or right so the section still feels editorial.
+          </div>
+
+        </div>
+
+        <div class="author-copy reveal">
+
+          <div class="eyebrow">
+            About the author
+          </div>
+
+          <h2>
+            I got tired of watching skilled people treat their
+            abilities like random facts about themselves.
+          </h2>
+
+          <div class="author-story">
+
+            <p>
+              A person can know how to lead, build, troubleshoot,
+              communicate, organize, create and solve problems and
+              still have no idea how those abilities fit together.
+            </p>
+
+            <p>
+              That's what Hella Skillz is about.
+            </p>
+
+            <p>
+              Not convincing you that you're talented.
+              Helping you understand what to do with the talent.
+            </p>
+
+            <p>
+              Because being skilled without structure creates
+              motion, not momentum.
+            </p>
+
+          </div>
+
+          <div class="author-signature">
+            Jeylechia Kirkland<br />
+            Founder, Jupiter's Lab Creative Studio
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         FAQ
+         ===================================================== -->
+
+    <section class="section faq" id="faq">
+
+      <div class="container faq-grid">
+
+        <div class="reveal">
+
+          <div class="eyebrow">
+            Questions
+          </div>
+
+          <h2 class="section-title">
+            Before you buy.
+          </h2>
+
+        </div>
+
+        <div class="faq-list reveal">
+
+          <article class="faq-item">
+
+            <button class="faq-question">
+              <span>Who is Hella Skillz written for?</span>
+              <span class="faq-plus">+</span>
+            </button>
+
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Hella Skillz is for multi-skilled people, professionals,
+                creators, entrepreneurs and builders who know they have
+                valuable experience but struggle to organize those abilities
+                into a clear direction, offer or income path.
+              </div>
+            </div>
+
+          </article>
+
+          <article class="faq-item">
+
+            <button class="faq-question">
+              <span>Do I need to already own a business?</span>
+              <span class="faq-plus">+</span>
+            </button>
+
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                No. The book begins before the business. It helps you
+                understand your skills, identify patterns and determine what
+                those abilities could become before you start building
+                unnecessary infrastructure around the wrong idea.
+              </div>
+            </div>
+
+          </article>
+
+          <article class="faq-item">
+
+            <button class="faq-question">
+              <span>Is this only for entrepreneurs?</span>
+              <span class="faq-plus">+</span>
+            </button>
+
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                No. The concepts can also help you understand your
+                professional value, describe your abilities more clearly,
+                reposition yourself professionally and make better decisions
+                about where your skills belong.
+              </div>
+            </div>
+
+          </article>
+
+          <article class="faq-item">
+
+            <button class="faq-question">
+              <span>What format is the book?</span>
+              <span class="faq-plus">+</span>
+            </button>
+
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Hella Skillz is a digital book designed to be read on your
+                phone, tablet, computer or compatible e-reader.
+              </div>
+            </div>
+
+          </article>
+
+          <article class="faq-item">
+
+            <button class="faq-question">
+              <span>Is this another motivational ebook?</span>
+              <span class="faq-plus">+</span>
+            </button>
+
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                No. The goal is not to convince you that you are capable.
+                The goal is to help you identify what you know, understand
+                how your skills connect and put structure around the value
+                you already possess.
+              </div>
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         FINAL CTA
+         ===================================================== -->
+
+    <section class="final-cta">
+
+      <div class="container final-cta-inner reveal">
+
+        <img
+          src="assets/jlab-chrome-logo.png"
+          alt="Jupiter's Lab"
+          class="final-cta-logo"
+        />
+
+        <h2>
+          Your skills need
+          <span>a direction.</span>
+        </h2>
+
+        <p>
+          Stop collecting abilities without understanding what
+          they are building toward.
+        </p>
+
+        <div class="final-actions">
+
+          <a
+            href="https://YOUR-CHECKOUT-LINK.com"
+            class="button button-primary"
+            target="_blank"
+            rel="noopener"
+          >
+            Get Hella Skillz
+            <span class="button-arrow">→</span>
+          </a>
+
+          <a
+            href="https://jupiterslab.com"
+            class="button button-secondary"
+            target="_blank"
+            rel="noopener"
+          >
+            Visit Jupiter's Lab
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =======================================================
+       FOOTER
+       ======================================================= -->
+
+  <footer>
+
+    <div class="container footer-inner">
+
+      <div>
+        © <span id="year"></span>
+        Jupiter's Lab Creative Studio.
+        All rights reserved.
+      </div>
+
+      <div class="footer-links">
+        <a href="https://jupiterslab.com">
+          jupiterslab.com
+        </a>
+
+        <a href="#">
+          Privacy
+        </a>
+
+        <a href="#">
+          Terms
+        </a>
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =======================================================
+       JAVASCRIPT
+       ======================================================= -->
+
+  <script>
+
+    /* =========================================================
+       CURRENT YEAR
+       ========================================================= */
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+
+    /* =========================================================
+       NAV SCROLL STATE
+       ========================================================= */
+
+    const navWrap = document.getElementById("navWrap");
+
+    function updateNav() {
+
+      if (window.scrollY > 30) {
+        navWrap.classList.add("scrolled");
+      } else {
+        navWrap.classList.remove("scrolled");
+      }
+
+    }
+
+    updateNav();
+
+    window.addEventListener("scroll", updateNav);
+
+
+    /* =========================================================
+       REVEAL ON SCROLL
+       ========================================================= */
+
+    const revealElements =
+      document.querySelectorAll(".reveal");
+
+    const revealObserver =
+      new IntersectionObserver(
+        entries => {
+
+          entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+              entry.target.classList.add("visible");
+
+              revealObserver.unobserve(entry.target);
+
+            }
+
+          });
+
+        },
+        {
+          threshold: 0.12,
+          rootMargin: "0px 0px -40px 0px"
+        }
+      );
+
+    revealElements.forEach(element => {
+      revealObserver.observe(element);
+    });
+
+
+    /* =========================================================
+       "WHICH ONE ARE YOU?" INTERACTION
+       ========================================================= */
+
+    const identityCards =
+      document.querySelectorAll(".identity-card");
+
+    const identityResult =
+      document.getElementById("identityResult");
+
+    const identityMessage =
+      document.getElementById("identityMessage");
+
+
+    identityCards.forEach(card => {
+
+      card.addEventListener("click", () => {
+
+        const message =
+          card.getAttribute("data-message");
+
+        identityCards.forEach(item => {
+
+          item.style.borderColor =
+            "rgba(255,255,255,0.12)";
+
+        });
+
+        card.style.borderColor =
+          "#b494d8";
+
+        identityMessage.textContent =
+          " " + message;
+
+        identityResult.classList.add("visible");
+
+        setTimeout(() => {
+
+          identityResult.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest"
+          });
+
+        }, 80);
+
+      });
+
+    });
+
+
+    /* =========================================================
+       FAQ ACCORDION
+       ========================================================= */
+
+    const faqItems =
+      document.querySelectorAll(".faq-item");
+
+
+    faqItems.forEach(item => {
+
+      const question =
+        item.querySelector(".faq-question");
+
+      const answer =
+        item.querySelector(".faq-answer");
+
+
+      question.addEventListener("click", () => {
+
+        const isOpen =
+          item.classList.contains("open");
+
+
+        faqItems.forEach(otherItem => {
+
+          otherItem.classList.remove("open");
+
+          const otherAnswer =
+            otherItem.querySelector(".faq-answer");
+
+          otherAnswer.style.maxHeight = null;
+
+        });
+
+
+        if (!isOpen) {
+
+          item.classList.add("open");
+
+          answer.style.maxHeight =
+            answer.scrollHeight + "px";
+
+        }
+
+      });
+
+    });
+
+
+    /* =========================================================
+       SUBTLE PARALLAX FOR HERO BOOK
+       DESKTOP ONLY
+       ========================================================= */
+
+    const heroBook =
+      document.querySelector(".hero-book");
+
+    const prefersReducedMotion =
+      window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+
+
+    if (
+      heroBook &&
+      !prefersReducedMotion &&
+      window.innerWidth > 980
+    ) {
+
+      document.addEventListener(
+        "mousemove",
+        event => {
+
+          const x =
+            (
+              event.clientX /
+              window.innerWidth
+              - 0.5
+            ) * 2;
+
+          const y =
+            (
+              event.clientY /
+              window.innerHeight
+              - 0.5
+            ) * 2;
+
+          heroBook.style.transform =
+            `
+            perspective(1200px)
+            rotateY(${(-8 + x * 3)}deg)
+            rotateX(${(2 - y * 2)}deg)
+            translateY(${y * -4}px)
+            `;
+
+        }
+      );
+
+    }
+
+  </script>
+
+</body>
+</html>
