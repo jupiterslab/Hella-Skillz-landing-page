@@ -22,7 +22,7 @@
   <style>
 
     /* =========================================================
-       BRAND
+       BRAND SYSTEM
        ========================================================= */
 
     :root {
@@ -35,15 +35,20 @@
       --pearl: #f5f5f0;
 
       --lavender: #b494d8;
-      --lavender-light: #d7bdf4;
+      --lavender-light: #d9c1f5;
       --lavender-dark: #8e6bb7;
 
       --teal: #3dbfb8;
 
-      --muted: rgba(255,255,255,.65);
+      --muted: rgba(255,255,255,.66);
       --border: rgba(255,255,255,.12);
 
-      --max-width: 1240px;
+      --page-width: 1240px;
+      --section-space: 120px;
+
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
 
     }
 
@@ -60,9 +65,12 @@
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 95px;
     }
 
     body {
+
+      margin: 0;
 
       background: var(--black);
       color: var(--white);
@@ -80,11 +88,14 @@
 
       overflow-x: hidden;
 
+      -webkit-font-smoothing: antialiased;
+
     }
 
     img {
       display: block;
       max-width: 100%;
+      height: auto;
     }
 
     a {
@@ -94,171 +105,17 @@
 
     button {
       font: inherit;
-      cursor: pointer;
+      color: inherit;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
     }
 
     ::selection {
       background: var(--lavender);
       color: var(--black);
-    }
-
-
-    /* =========================================================
-       GLOBAL
-       ========================================================= */
-
-    .container {
-
-      width: min(
-        calc(100% - 40px),
-        var(--max-width)
-      );
-
-      margin: 0 auto;
-
-    }
-
-    .section {
-
-      position: relative;
-
-      padding: 120px 0;
-
-    }
-
-    .eyebrow {
-
-      display: flex;
-      align-items: center;
-      gap: 12px;
-
-      margin-bottom: 24px;
-
-      color: var(--lavender);
-
-      font-size: .76rem;
-      font-weight: 800;
-
-      letter-spacing: .18em;
-
-      text-transform: uppercase;
-
-    }
-
-    .eyebrow::before {
-
-      content: "";
-
-      width: 28px;
-      height: 1px;
-
-      background: var(--lavender);
-
-    }
-
-    .section-title {
-
-      max-width: 900px;
-
-      font-size: clamp(
-        2.8rem,
-        6vw,
-        6rem
-      );
-
-      font-weight: 850;
-
-      line-height: .96;
-
-      letter-spacing: -.065em;
-
-    }
-
-    .section-copy {
-
-      max-width: 680px;
-
-      margin-top: 28px;
-
-      color: var(--muted);
-
-      font-size: 1.1rem;
-
-      line-height: 1.7;
-
-    }
-
-    .lavender {
-      color: var(--lavender);
-    }
-
-
-    /* =========================================================
-       BUTTONS
-       ========================================================= */
-
-    .button {
-
-      display: inline-flex;
-
-      justify-content: center;
-      align-items: center;
-
-      gap: 12px;
-
-      min-height: 56px;
-
-      padding: 0 28px;
-
-      border-radius: 999px;
-
-      border: 1px solid transparent;
-
-      font-weight: 800;
-
-      transition:
-        transform .25s ease,
-        background .25s ease,
-        border-color .25s ease;
-
-    }
-
-    .button:hover {
-
-      transform: translateY(-3px);
-
-    }
-
-    .button-primary {
-
-      background: var(--lavender);
-
-      color: var(--black);
-
-    }
-
-    .button-primary:hover {
-
-      background: var(--lavender-light);
-
-    }
-
-    .button-secondary {
-
-      border-color: var(--border);
-
-      background: rgba(255,255,255,.04);
-
-      color: var(--white);
-
-    }
-
-    .button-secondary:hover {
-
-      border-color: var(--lavender);
-
-      background: rgba(180,148,216,.09);
-
     }
 
 
@@ -276,21 +133,23 @@
 
       z-index: -2;
 
+      pointer-events: none;
+
       background:
 
         radial-gradient(
-          circle at 80% 10%,
-          rgba(180,148,216,.10),
-          transparent 30%
+          circle at 82% 8%,
+          rgba(180,148,216,.11),
+          transparent 29%
         ),
 
         radial-gradient(
-          circle at 10% 60%,
-          rgba(61,191,184,.04),
-          transparent 25%
+          circle at 10% 58%,
+          rgba(61,191,184,.035),
+          transparent 24%
         ),
 
-        #050505;
+        var(--black);
 
     }
 
@@ -304,27 +163,201 @@
 
       z-index: -1;
 
-      opacity: .18;
+      pointer-events: none;
+
+      opacity: .16;
 
       background-image:
-
         radial-gradient(
           white .6px,
           transparent .6px
         );
 
-      background-size: 52px 52px;
-
-      pointer-events: none;
+      background-size:
+        52px 52px;
 
     }
 
 
     /* =========================================================
-       NAV
+       GLOBAL
        ========================================================= */
 
-    header {
+    .container {
+
+      width:
+        min(
+          calc(100% - 48px),
+          var(--page-width)
+        );
+
+      margin-inline: auto;
+
+    }
+
+    .section {
+
+      position: relative;
+
+      padding:
+        var(--section-space) 0;
+
+    }
+
+    .eyebrow {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 12px;
+
+      margin-bottom: 24px;
+
+      color: var(--lavender);
+
+      font-size: .76rem;
+
+      font-weight: 900;
+
+      letter-spacing: .18em;
+
+      text-transform: uppercase;
+
+    }
+
+    .eyebrow::before {
+
+      content: "";
+
+      width: 28px;
+      height: 1px;
+
+      background: currentColor;
+
+      flex: 0 0 auto;
+
+    }
+
+    .section-title {
+
+      max-width: 900px;
+
+      font-size:
+        clamp(
+          2.8rem,
+          5.8vw,
+          5.8rem
+        );
+
+      font-weight: 850;
+
+      line-height: .96;
+
+      letter-spacing: -.06em;
+
+      text-wrap: balance;
+
+    }
+
+    .section-copy {
+
+      max-width: 700px;
+
+      margin-top: 28px;
+
+      color: var(--muted);
+
+      font-size:
+        clamp(
+          1rem,
+          1.5vw,
+          1.12rem
+        );
+
+      line-height: 1.7;
+
+    }
+
+
+    /* =========================================================
+       BUTTONS
+       ========================================================= */
+
+    .button {
+
+      min-height: 56px;
+
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      gap: 10px;
+
+      padding:
+        0 28px;
+
+      border:
+        1px solid transparent;
+
+      border-radius: 999px;
+
+      font-weight: 850;
+
+      font-size: .95rem;
+
+      cursor: pointer;
+
+      transition:
+        transform .22s ease,
+        background .22s ease,
+        border-color .22s ease;
+
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+
+      background: var(--lavender);
+
+      color: var(--black);
+
+    }
+
+    .button-primary:hover {
+      background: var(--lavender-light);
+    }
+
+    .button-secondary {
+
+      border-color: var(--border);
+
+      background: rgba(255,255,255,.04);
+
+      color: var(--white);
+
+    }
+
+    .button-secondary:hover {
+
+      border-color: var(--lavender);
+
+      background:
+        rgba(180,148,216,.08);
+
+    }
+
+
+    /* =========================================================
+       HEADER
+       ========================================================= */
+
+    .site-header {
 
       position: fixed;
 
@@ -335,9 +368,10 @@
       z-index: 1000;
 
       background:
-        rgba(5,5,5,.78);
+        rgba(5,5,5,.82);
 
       backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
 
       border-bottom:
         1px solid rgba(255,255,255,.06);
@@ -350,14 +384,17 @@
 
       display: flex;
 
-      justify-content: space-between;
       align-items: center;
 
-      gap: 25px;
+      justify-content: space-between;
+
+      gap: 24px;
 
     }
 
     .brand {
+
+      min-width: max-content;
 
       display: flex;
 
@@ -369,7 +406,9 @@
 
     .brand strong {
 
-      font-size: .96rem;
+      font-size: .93rem;
+
+      font-weight: 900;
 
       letter-spacing: .13em;
 
@@ -383,15 +422,17 @@
 
       color: var(--lavender);
 
-      font-size: .6rem;
+      font-size: .58rem;
 
-      letter-spacing: .18em;
+      font-weight: 800;
+
+      letter-spacing: .19em;
 
       text-transform: uppercase;
 
     }
 
-    .nav-links {
+    .nav-center {
 
       display: flex;
 
@@ -399,27 +440,127 @@
 
       gap: 28px;
 
-      color: rgba(255,255,255,.68);
+      color:
+        rgba(255,255,255,.7);
 
-      font-size: .88rem;
+      font-size: .87rem;
 
-      font-weight: 600;
+      font-weight: 650;
 
     }
 
-    .nav-links a:hover {
+    .nav-center a {
+      transition: color .2s ease;
+    }
 
+    .nav-center a:hover {
       color: var(--white);
-
     }
 
-    .nav .button {
+    .nav-buy {
 
       min-height: 44px;
 
-      padding: 0 21px;
+      padding-inline: 21px;
 
-      font-size: .86rem;
+      font-size: .84rem;
+
+    }
+
+    .menu-toggle {
+
+      display: none;
+
+      width: 44px;
+      height: 44px;
+
+      align-items: center;
+      justify-content: center;
+
+      border:
+
+        1px solid rgba(255,255,255,.12);
+
+      border-radius: 12px;
+
+      background:
+        rgba(255,255,255,.04);
+
+      color: white;
+
+      cursor: pointer;
+
+    }
+
+    .menu-lines {
+
+      width: 20px;
+
+      display: grid;
+
+      gap: 4px;
+
+    }
+
+    .menu-lines span {
+
+      display: block;
+
+      height: 2px;
+
+      border-radius: 5px;
+
+      background: white;
+
+    }
+
+    .mobile-menu {
+
+      display: none;
+
+      padding:
+        0 24px 18px;
+
+    }
+
+    .mobile-menu.open {
+      display: grid;
+    }
+
+    .mobile-menu a {
+
+      min-height: 50px;
+
+      display: flex;
+
+      align-items: center;
+
+      padding:
+        0 14px;
+
+      border-bottom:
+        1px solid rgba(255,255,255,.07);
+
+      color:
+        rgba(255,255,255,.78);
+
+      font-weight: 700;
+
+    }
+
+    .mobile-menu .mobile-buy {
+
+      margin-top: 14px;
+
+      border: 0;
+
+      border-radius: 999px;
+
+      justify-content: center;
+
+      background: var(--lavender);
+
+      color: var(--black);
 
     }
 
@@ -437,9 +578,7 @@
       align-items: center;
 
       padding:
-
-        145px 0
-        90px;
+        140px 0 80px;
 
     }
 
@@ -448,12 +587,22 @@
       display: grid;
 
       grid-template-columns:
-        1.05fr .95fr;
-
-      gap: 65px;
+        minmax(0, 1fr)
+        minmax(400px, .9fr);
 
       align-items: center;
 
+      gap:
+        clamp(
+          35px,
+          5vw,
+          70px
+        );
+
+    }
+
+    .hero-copy {
+      min-width: 0;
     }
 
     .hero-kicker {
@@ -474,11 +623,12 @@
 
     .hero h1 {
 
-      font-size: clamp(
-        4rem,
-        9vw,
-        8.8rem
-      );
+      font-size:
+        clamp(
+          4rem,
+          8.4vw,
+          8.5rem
+        );
 
       font-weight: 900;
 
@@ -506,11 +656,12 @@
 
       margin-top: 38px;
 
-      font-size: clamp(
-        1.55rem,
-        2.8vw,
-        2.4rem
-      );
+      font-size:
+        clamp(
+          1.45rem,
+          2.5vw,
+          2.3rem
+        );
 
       font-weight: 750;
 
@@ -521,9 +672,7 @@
     }
 
     .hero-subtitle span {
-
       color: var(--lavender);
-
     }
 
     .hero-description {
@@ -534,7 +683,12 @@
 
       color: var(--muted);
 
-      font-size: 1.08rem;
+      font-size:
+        clamp(
+          1rem,
+          1.5vw,
+          1.08rem
+        );
 
       line-height: 1.7;
 
@@ -542,13 +696,13 @@
 
     .hero-actions {
 
+      margin-top: 34px;
+
       display: flex;
 
       flex-wrap: wrap;
 
-      gap: 14px;
-
-      margin-top: 35px;
+      gap: 13px;
 
     }
 
@@ -556,7 +710,8 @@
 
       margin-top: 16px;
 
-      color: rgba(255,255,255,.42);
+      color:
+        rgba(255,255,255,.43);
 
       font-size: .8rem;
 
@@ -565,17 +720,21 @@
 
     /* =========================================================
        HERO IMAGE
+       IMAGE 1
        ========================================================= */
 
     .hero-visual {
 
       position: relative;
 
+      min-width: 0;
+
       min-height: 650px;
 
       display: flex;
 
       align-items: center;
+
       justify-content: center;
 
     }
@@ -584,13 +743,14 @@
 
       position: absolute;
 
-      width: 430px;
-      height: 430px;
+      width: 70%;
+
+      aspect-ratio: 1;
 
       border-radius: 50%;
 
       background:
-        rgba(180,148,216,.20);
+        rgba(180,148,216,.19);
 
       filter: blur(110px);
 
@@ -600,13 +760,15 @@
 
       position: absolute;
 
-      width: 570px;
-      height: 570px;
+      width: min(100%, 580px);
 
-      border-radius: 50%;
+      aspect-ratio: 1;
 
       border:
-        1px solid rgba(180,148,216,.18);
+
+        1px solid rgba(180,148,216,.15);
+
+      border-radius: 50%;
 
     }
 
@@ -616,24 +778,35 @@
 
       z-index: 3;
 
-      width: min(95%, 550px);
+      width:
+        min(
+          100%,
+          560px
+        );
+
+      max-height: 680px;
+
+      object-fit: contain;
 
       filter:
 
         drop-shadow(
-          0 35px 55px rgba(0,0,0,.7)
+          0 35px 50px rgba(0,0,0,.5)
         )
 
         drop-shadow(
-          0 0 40px rgba(180,148,216,.15)
+          0 0 40px rgba(180,148,216,.13)
         );
 
       animation:
-        floatBook 6s ease-in-out infinite;
+        heroFloat
+        6s
+        ease-in-out
+        infinite;
 
     }
 
-    @keyframes floatBook {
+    @keyframes heroFloat {
 
       0%,
       100% {
@@ -641,7 +814,7 @@
       }
 
       50% {
-        transform: translateY(-16px);
+        transform: translateY(-15px);
       }
 
     }
@@ -664,7 +837,7 @@
       display: grid;
 
       grid-template-columns:
-        .7fr 1.3fr;
+        .65fr 1.35fr;
 
       gap: 70px;
 
@@ -672,9 +845,9 @@
 
     .manifesto-label {
 
-      color: #765d91;
+      color: #735a8c;
 
-      font-size: .75rem;
+      font-size: .76rem;
 
       font-weight: 900;
 
@@ -694,11 +867,12 @@
 
     .manifesto-line {
 
-      font-size: clamp(
-        2.4rem,
-        5.5vw,
-        5.8rem
-      );
+      font-size:
+        clamp(
+          2.4rem,
+          5.3vw,
+          5.6rem
+        );
 
       font-weight: 850;
 
@@ -710,7 +884,8 @@
 
     .manifesto-line.dim {
 
-      color: rgba(0,0,0,.23);
+      color:
+        rgba(0,0,0,.22);
 
     }
 
@@ -718,29 +893,28 @@
 
       margin-top: 70px;
 
-      padding-top: 45px;
+      padding-top: 42px;
 
       border-top:
-        1px solid rgba(0,0,0,.15);
+        1px solid rgba(0,0,0,.14);
 
-      font-size: clamp(
-        1.6rem,
-        3vw,
-        3rem
-      );
+      font-size:
+        clamp(
+          1.6rem,
+          3vw,
+          3rem
+        );
 
       font-weight: 750;
 
-      letter-spacing: -.04em;
-
       line-height: 1.15;
+
+      letter-spacing: -.04em;
 
     }
 
     .manifesto-bottom span {
-
       color: #78569a;
-
     }
 
 
@@ -752,7 +926,7 @@
 
       max-width: 850px;
 
-      margin-bottom: 60px;
+      margin-bottom: 58px;
 
     }
 
@@ -760,20 +934,21 @@
 
       position: relative;
 
-      min-height: 600px;
+      min-height: 620px;
 
       overflow: hidden;
 
-      border-radius: 30px;
+      border:
+        1px solid var(--border);
 
-      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
 
       background:
 
         radial-gradient(
           circle at center,
           rgba(180,148,216,.12),
-          transparent 35%
+          transparent 36%
         ),
 
         #09090b;
@@ -801,7 +976,8 @@
           transparent 1px
         );
 
-      background-size: 60px 60px;
+      background-size:
+        60px 60px;
 
     }
 
@@ -811,33 +987,33 @@
 
       z-index: 2;
 
-      padding: 10px 18px;
+      padding:
+        10px 18px;
 
       border:
-
-        1px solid rgba(255,255,255,.16);
+        1px solid rgba(255,255,255,.15);
 
       border-radius: 999px;
 
       background:
-        rgba(255,255,255,.06);
+        rgba(255,255,255,.055);
 
       backdrop-filter: blur(10px);
 
-      font-size: .9rem;
+      font-size: .88rem;
 
       font-weight: 700;
 
     }
 
     .skill.one {
-      top: 12%;
+      top: 13%;
       left: 7%;
     }
 
     .skill.two {
-      top: 16%;
-      right: 9%;
+      top: 18%;
+      right: 8%;
     }
 
     .skill.three {
@@ -846,17 +1022,17 @@
     }
 
     .skill.four {
-      bottom: 11%;
-      right: 10%;
+      bottom: 10%;
+      right: 11%;
     }
 
     .skill.five {
       top: 7%;
-      left: 44%;
+      left: 45%;
     }
 
     .skill.six {
-      top: 52%;
+      top: 54%;
       right: 4%;
     }
 
@@ -869,10 +1045,14 @@
       top: 50%;
       left: 50%;
 
-      width: min(90%, 700px);
-
       transform:
-        translate(-50%, -50%);
+        translate(-50%,-50%);
+
+      width:
+        min(
+          90%,
+          700px
+        );
 
       text-align: center;
 
@@ -881,6 +1061,8 @@
     .skills-center small {
 
       color: var(--lavender);
+
+      font-size: .73rem;
 
       font-weight: 900;
 
@@ -894,11 +1076,14 @@
 
       margin-top: 20px;
 
-      font-size: clamp(
-        3rem,
-        7vw,
-        6.5rem
-      );
+      font-size:
+        clamp(
+          3rem,
+          6.5vw,
+          6.2rem
+        );
+
+      font-weight: 850;
 
       line-height: .94;
 
@@ -909,6 +1094,7 @@
 
     /* =========================================================
        INSIDE BOOK
+       IMAGE 2
        ========================================================= */
 
     .inside {
@@ -917,7 +1103,7 @@
 
         linear-gradient(
           145deg,
-          rgba(180,148,216,.06),
+          rgba(180,148,216,.055),
           transparent 45%
         );
 
@@ -928,20 +1114,31 @@
       display: grid;
 
       grid-template-columns:
-        1.05fr .95fr;
-
-      gap: 80px;
+        minmax(0,1.08fr)
+        minmax(0,.92fr);
 
       align-items: center;
 
+      gap:
+        clamp(
+          45px,
+          6vw,
+          80px
+        );
+
     }
-
-
-    /* SECOND CUSTOM IMAGE */
 
     .product-image-wrap {
 
+      min-width: 0;
+
       position: relative;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
 
     }
 
@@ -949,21 +1146,16 @@
 
       position: absolute;
 
-      top: 50%;
-      left: 50%;
-
       width: 65%;
+
       aspect-ratio: 1;
 
-      transform:
-        translate(-50%, -50%);
+      border-radius: 50%;
 
       background:
         rgba(180,148,216,.18);
 
-      filter: blur(120px);
-
-      border-radius: 50%;
+      filter: blur(115px);
 
     }
 
@@ -975,9 +1167,13 @@
 
       width: 100%;
 
+      max-height: 700px;
+
+      object-fit: contain;
+
       filter:
         drop-shadow(
-          0 30px 50px rgba(0,0,0,.45)
+          0 30px 48px rgba(0,0,0,.4)
         );
 
     }
@@ -992,9 +1188,12 @@
 
       display: flex;
 
+      align-items: flex-start;
+
       gap: 20px;
 
-      padding: 20px 0;
+      padding:
+        20px 0;
 
       border-bottom:
         1px solid var(--border);
@@ -1010,6 +1209,8 @@
 
     .inside-number {
 
+      flex: 0 0 auto;
+
       color: var(--lavender);
 
       font-size: .72rem;
@@ -1020,9 +1221,14 @@
 
     .inside-name {
 
-      font-size: 1.15rem;
+      font-size:
+        clamp(
+          1rem,
+          1.5vw,
+          1.17rem
+        );
 
-      font-weight: 700;
+      font-weight: 720;
 
     }
 
@@ -1041,13 +1247,8 @@
 
     .path .eyebrow {
 
-      color: rgba(0,0,0,.7);
-
-    }
-
-    .path .eyebrow::before {
-
-      background: rgba(0,0,0,.7);
+      color:
+        rgba(0,0,0,.68);
 
     }
 
@@ -1058,7 +1259,10 @@
       display: grid;
 
       grid-template-columns:
-        repeat(3, 1fr);
+        repeat(
+          3,
+          minmax(0,1fr)
+        );
 
       border-top:
         1px solid rgba(0,0,0,.2);
@@ -1069,6 +1273,8 @@
     }
 
     .path-card {
+
+      min-width: 0;
 
       min-height: 250px;
 
@@ -1089,18 +1295,17 @@
     }
 
     .path-card small {
-
       font-weight: 900;
-
     }
 
     .path-card h3 {
 
-      font-size: clamp(
-        1.7rem,
-        3vw,
-        2.8rem
-      );
+      font-size:
+        clamp(
+          1.7rem,
+          2.7vw,
+          2.8rem
+        );
 
       line-height: .98;
 
@@ -1112,7 +1317,8 @@
 
       margin-top: 14px;
 
-      color: rgba(0,0,0,.68);
+      color:
+        rgba(0,0,0,.68);
 
       line-height: 1.55;
 
@@ -1125,7 +1331,17 @@
 
     .identity-header {
 
+      max-width: 850px;
+
+      margin-inline: auto;
+
       text-align: center;
+
+    }
+
+    .identity-header .eyebrow {
+
+      justify-content: center;
 
     }
 
@@ -1137,68 +1353,63 @@
 
     }
 
-    .identity-header .eyebrow {
-
-      justify-content: center;
-
-    }
-
     .identity-grid {
+
+      margin-top: 65px;
 
       display: grid;
 
       grid-template-columns:
-        repeat(2, 1fr);
+        repeat(
+          2,
+          minmax(0,1fr)
+        );
 
       gap: 16px;
-
-      margin-top: 65px;
 
     }
 
     .identity-card {
 
+      min-width: 0;
+
       min-height: 280px;
 
       padding: 34px;
 
-      position: relative;
-
       border:
-
         1px solid var(--border);
 
-      border-radius: 22px;
+      border-radius: var(--radius-lg);
 
       background:
         rgba(255,255,255,.025);
 
-      color: var(--white);
-
       text-align: left;
 
+      cursor: pointer;
+
       transition:
-        .25s ease;
+        transform .22s ease,
+        border-color .22s ease,
+        background .22s ease;
 
     }
 
     .identity-card:hover {
 
-      transform:
-        translateY(-5px);
+      transform: translateY(-4px);
 
-      border-color:
-        var(--lavender);
+      border-color: var(--lavender);
 
       background:
-        rgba(180,148,216,.08);
+        rgba(180,148,216,.075);
 
     }
 
     .identity-card small {
 
-      color:
-        var(--lavender);
+      color: var(--lavender);
 
       font-weight: 900;
 
@@ -1206,15 +1417,16 @@
 
     .identity-card h3 {
 
-      margin-top: 65px;
+      margin-top: 62px;
 
-      font-size: clamp(
-        1.5rem,
-        3vw,
-        2.5rem
-      );
+      font-size:
+        clamp(
+          1.5rem,
+          2.6vw,
+          2.45rem
+        );
 
-      line-height: 1.05;
+      line-height: 1.06;
 
       letter-spacing: -.04em;
 
@@ -1229,7 +1441,6 @@
       padding: 28px;
 
       border:
-
         1px solid rgba(180,148,216,.35);
 
       border-radius: 20px;
@@ -1242,22 +1453,15 @@
     }
 
     .identity-result.visible {
-
       display: block;
-
     }
 
     .identity-result strong {
-
-      color:
-        var(--lavender-light);
-
+      color: var(--lavender-light);
     }
 
     .identity-result .button {
-
       margin-top: 22px;
-
     }
 
 
@@ -1267,7 +1471,7 @@
 
     .quote-section {
 
-      min-height: 680px;
+      min-height: 670px;
 
       display: flex;
 
@@ -1280,10 +1484,10 @@
         radial-gradient(
           circle at center,
           rgba(180,148,216,.15),
-          transparent 40%
+          transparent 39%
         ),
 
-        #050505;
+        var(--black);
 
     }
 
@@ -1291,32 +1495,32 @@
 
       max-width: 1050px;
 
-      margin: auto;
+      margin-inline: auto;
 
-      font-size: clamp(
-        3.5rem,
-        9vw,
-        8.5rem
-      );
+      font-size:
+        clamp(
+          3.5rem,
+          8.5vw,
+          8rem
+        );
 
       font-weight: 850;
 
-      line-height: .88;
+      line-height: .89;
 
       letter-spacing: -.07em;
+
+      text-wrap: balance;
 
     }
 
     .quote span {
-
-      color:
-        var(--lavender);
-
+      color: var(--lavender);
     }
 
 
     /* =========================================================
-       WHO FOR
+       WHO IT IS FOR
        ========================================================= */
 
     .for-grid {
@@ -1324,9 +1528,15 @@
       display: grid;
 
       grid-template-columns:
-        .8fr 1.2fr;
+        minmax(0,.8fr)
+        minmax(0,1.2fr);
 
-      gap: 85px;
+      gap:
+        clamp(
+          50px,
+          7vw,
+          85px
+        );
 
     }
 
@@ -1336,7 +1546,7 @@
 
       top: 130px;
 
-      height: fit-content;
+      align-self: start;
 
     }
 
@@ -1353,10 +1563,9 @@
       padding: 32px;
 
       border:
-
         1px solid var(--border);
 
-      border-radius: 20px;
+      border-radius: var(--radius-lg);
 
       background:
         rgba(255,255,255,.025);
@@ -1372,17 +1581,16 @@
 
       place-items: center;
 
-      margin-bottom: 25px;
+      margin-bottom: 24px;
 
       border-radius: 50%;
 
       background:
         rgba(180,148,216,.13);
 
-      color:
-        var(--lavender);
+      color: var(--lavender);
 
-      font-size: .75rem;
+      font-size: .73rem;
 
       font-weight: 900;
 
@@ -1390,7 +1598,12 @@
 
     .truth-card h3 {
 
-      font-size: 1.3rem;
+      font-size:
+        clamp(
+          1.15rem,
+          1.8vw,
+          1.35rem
+        );
 
     }
 
@@ -1398,8 +1611,7 @@
 
       margin-top: 12px;
 
-      color:
-        var(--muted);
+      color: var(--muted);
 
       line-height: 1.65;
 
@@ -1407,16 +1619,14 @@
 
 
     /* =========================================================
-       PRODUCT CTA
+       PRODUCT
        ========================================================= */
 
     .product {
 
-      background:
-        var(--pearl);
+      background: var(--pearl);
 
-      color:
-        var(--black);
+      color: var(--black);
 
     }
 
@@ -1425,50 +1635,58 @@
       display: grid;
 
       grid-template-columns:
-        .9fr 1.1fr;
-
-      gap: 80px;
+        minmax(0,.9fr)
+        minmax(0,1.1fr);
 
       align-items: center;
+
+      gap:
+        clamp(
+          45px,
+          6vw,
+          80px
+        );
 
     }
 
     .product-visual {
 
-      padding: 40px;
+      min-width: 0;
 
-      border-radius: 30px;
+      padding: 38px;
 
-      background:
-        var(--black);
+      border-radius: var(--radius-xl);
+
+      background: var(--black);
 
     }
 
     .product-visual img {
 
-      margin: auto;
+      width: 100%;
 
       max-height: 650px;
+
+      margin: auto;
 
       object-fit: contain;
 
     }
 
     .product-copy .section-title {
-
-      color:
-        var(--black);
-
+      color: var(--black);
     }
 
     .product-copy p {
+
+      max-width: 620px;
 
       margin-top: 25px;
 
       color:
         rgba(0,0,0,.68);
 
-      font-size: 1.08rem;
+      font-size: 1.06rem;
 
       line-height: 1.7;
 
@@ -1488,6 +1706,8 @@
 
       display: flex;
 
+      align-items: flex-start;
+
       gap: 12px;
 
       font-weight: 700;
@@ -1499,7 +1719,8 @@
       width: 23px;
       height: 23px;
 
-      flex: 0 0 23px;
+      flex:
+        0 0 23px;
 
       display: grid;
 
@@ -1507,20 +1728,16 @@
 
       border-radius: 50%;
 
-      background:
-        var(--black);
+      background: var(--black);
 
-      color:
-        var(--lavender);
+      color: var(--lavender);
 
       font-size: .72rem;
 
     }
 
     .product-copy .button {
-
       margin-top: 35px;
-
     }
 
 
@@ -1544,17 +1761,20 @@
 
       max-width: 900px;
 
-      margin: auto;
+      margin-inline: auto;
 
-      font-size: clamp(
-        2.7rem,
-        5vw,
-        5.2rem
-      );
+      font-size:
+        clamp(
+          2.7rem,
+          5vw,
+          5rem
+        );
 
-      line-height: .97;
+      line-height: .98;
 
       letter-spacing: -.06em;
+
+      text-wrap: balance;
 
     }
 
@@ -1565,8 +1785,7 @@
       margin:
         38px auto 0;
 
-      color:
-        var(--muted);
+      color: var(--muted);
 
       font-size: 1.08rem;
 
@@ -1578,8 +1797,7 @@
 
       margin-top: 30px;
 
-      color:
-        var(--lavender);
+      color: var(--lavender);
 
       font-weight: 800;
 
@@ -1592,8 +1810,7 @@
 
     .faq {
 
-      background:
-        #08080a;
+      background: #08080a;
 
     }
 
@@ -1602,9 +1819,15 @@
       display: grid;
 
       grid-template-columns:
-        .7fr 1.3fr;
+        minmax(0,.7fr)
+        minmax(0,1.3fr);
 
-      gap: 80px;
+      gap:
+        clamp(
+          45px,
+          6vw,
+          80px
+        );
 
     }
 
@@ -1626,46 +1849,48 @@
 
       width: 100%;
 
-      padding: 26px 0;
+      min-height: 72px;
 
       display: flex;
 
-      justify-content: space-between;
       align-items: center;
 
+      justify-content: space-between;
+
       gap: 25px;
+
+      padding:
+        22px 0;
 
       border: 0;
 
       background: transparent;
 
-      color: var(--white);
-
       text-align: left;
 
-      font-size: 1.05rem;
+      font-size: 1.04rem;
 
       font-weight: 750;
+
+      cursor: pointer;
 
     }
 
     .faq-plus {
 
-      color:
-        var(--lavender);
+      flex: 0 0 auto;
+
+      color: var(--lavender);
 
       font-size: 1.4rem;
 
       transition:
-        transform .25s ease;
+        transform .2s ease;
 
     }
 
     .faq-item.open .faq-plus {
-
-      transform:
-        rotate(45deg);
-
+      transform: rotate(45deg);
     }
 
     .faq-answer {
@@ -1674,18 +1899,17 @@
 
       overflow: hidden;
 
-      transition:
-        max-height .4s ease;
+      color: var(--muted);
 
-      color:
-        var(--muted);
+      transition:
+        max-height .38s ease;
 
     }
 
     .faq-answer-inner {
 
       padding:
-        0 40px 27px 0;
+        0 40px 26px 0;
 
       line-height: 1.7;
 
@@ -1699,15 +1923,15 @@
     .final-cta {
 
       padding:
-        140px 0;
+        135px 0;
 
       text-align: center;
 
       background:
 
         radial-gradient(
-          circle at 50% 30%,
-          rgba(180,148,216,.20),
+          circle at 50% 28%,
+          rgba(180,148,216,.2),
           transparent 35%
         ),
 
@@ -1717,16 +1941,15 @@
 
     .text-logo {
 
-      margin-bottom: 45px;
+      margin-bottom: 42px;
 
-      color:
-        var(--lavender);
+      color: var(--lavender);
 
-      font-size: .8rem;
+      font-size: .78rem;
 
       font-weight: 900;
 
-      letter-spacing: .28em;
+      letter-spacing: .26em;
 
       text-transform: uppercase;
 
@@ -1736,25 +1959,25 @@
 
       max-width: 1000px;
 
-      margin: auto;
+      margin-inline: auto;
 
-      font-size: clamp(
-        3.5rem,
-        8vw,
-        8rem
-      );
+      font-size:
+        clamp(
+          3.4rem,
+          7.8vw,
+          7.8rem
+        );
 
-      line-height: .88;
+      line-height: .89;
 
       letter-spacing: -.07em;
+
+      text-wrap: balance;
 
     }
 
     .final-cta h2 span {
-
-      color:
-        var(--lavender);
-
+      color: var(--lavender);
     }
 
     .final-cta p {
@@ -1764,10 +1987,11 @@
       margin:
         30px auto 0;
 
-      color:
-        var(--muted);
+      color: var(--muted);
 
-      font-size: 1.08rem;
+      font-size: 1.07rem;
+
+      line-height: 1.65;
 
     }
 
@@ -1781,7 +2005,7 @@
 
       flex-wrap: wrap;
 
-      gap: 14px;
+      gap: 13px;
 
     }
 
@@ -1793,7 +2017,7 @@
     footer {
 
       padding:
-        35px 0;
+        34px 0;
 
       border-top:
         1px solid var(--border);
@@ -1809,19 +2033,21 @@
 
       display: flex;
 
-      justify-content: space-between;
-
       align-items: center;
 
-      flex-wrap: wrap;
+      justify-content: space-between;
 
       gap: 25px;
+
+      flex-wrap: wrap;
 
     }
 
     .footer-links {
 
       display: flex;
+
+      align-items: center;
 
       flex-wrap: wrap;
 
@@ -1830,55 +2056,304 @@
     }
 
     .footer-links a:hover {
+      color: white;
+    }
 
-      color:
-        var(--white);
+
+    /* =========================================================
+       LAPTOPS
+       APPROX 1024 - 1366
+       ========================================================= */
+
+    @media
+    (min-width: 1025px)
+    and
+    (max-width: 1366px) {
+
+      :root {
+        --page-width: 1120px;
+        --section-space: 100px;
+      }
+
+      .container {
+
+        width:
+          min(
+            calc(100% - 44px),
+            var(--page-width)
+          );
+
+      }
+
+      .hero-grid {
+
+        grid-template-columns:
+          1fr .85fr;
+
+        gap: 42px;
+
+      }
+
+      .hero-visual {
+        min-height: 570px;
+      }
+
+      .hero-book {
+        max-height: 590px;
+      }
+
+      .nav-center {
+        gap: 20px;
+      }
 
     }
 
 
     /* =========================================================
-       RESPONSIVE
+       IPAD LANDSCAPE / SMALL LAPTOPS
        ========================================================= */
 
-    @media (max-width: 980px) {
+    @media
+    (max-width: 1100px) {
 
-      .section {
-        padding: 90px 0;
+      :root {
+        --section-space: 90px;
       }
 
-      .nav-links {
+      .nav-center {
         display: none;
       }
 
+      .menu-toggle {
+        display: flex;
+      }
+
+      .nav > .nav-buy {
+        display: none;
+      }
+
+      .hero {
+
+        min-height: auto;
+
+        padding:
+          125px 0 75px;
+
+      }
+
+      .hero-grid {
+
+        grid-template-columns:
+          minmax(0,1fr)
+          minmax(330px,.8fr);
+
+        gap: 35px;
+
+      }
+
+      .hero-visual {
+        min-height: 530px;
+      }
+
+      .manifesto-grid {
+
+        grid-template-columns:
+          1fr;
+
+        gap: 38px;
+
+      }
+
+      .inside-grid {
+
+        grid-template-columns:
+          1fr 1fr;
+
+        gap: 45px;
+
+      }
+
+      .path-grid {
+
+        grid-template-columns:
+          repeat(
+            2,
+            minmax(0,1fr)
+          );
+
+      }
+
+      .for-grid {
+
+        grid-template-columns:
+          .85fr 1.15fr;
+
+        gap: 45px;
+
+      }
+
+      .product-grid {
+
+        grid-template-columns:
+          .9fr 1.1fr;
+
+        gap: 45px;
+
+      }
+
+    }
+
+
+    /* =========================================================
+       IPAD PORTRAIT / TABLETS
+       ========================================================= */
+
+    @media
+    (max-width: 850px) {
+
+      :root {
+        --section-space: 80px;
+      }
+
+      .container {
+
+        width:
+          min(
+            calc(100% - 36px),
+            var(--page-width)
+          );
+
+      }
+
       .hero-grid,
-      .manifesto-grid,
       .inside-grid,
       .for-grid,
       .product-grid,
       .faq-grid {
 
-        grid-template-columns: 1fr;
+        grid-template-columns:
+          1fr;
 
       }
 
+      .hero-copy {
+        text-align: center;
+      }
+
+      .hero h1 {
+        max-width: 680px;
+        margin-inline: auto;
+      }
+
+      .hero-subtitle,
+      .hero-description {
+
+        margin-left: auto;
+        margin-right: auto;
+
+      }
+
+      .hero-actions {
+        justify-content: center;
+      }
+
       .hero-visual {
-        min-height: 520px;
+
+        min-height: auto;
+
+        padding:
+          25px 0 0;
+
+      }
+
+      .hero-book {
+
+        width:
+          min(
+            78%,
+            520px
+          );
+
+        max-height: none;
+
+      }
+
+      .hero-ring {
+
+        width:
+          min(
+            75%,
+            500px
+          );
+
+      }
+
+      .manifesto-bottom {
+        margin-top: 55px;
+      }
+
+      .inside-grid {
+        gap: 55px;
+      }
+
+      .product-image {
+
+        width:
+          min(
+            100%,
+            650px
+          );
+
       }
 
       .for-copy {
         position: static;
       }
 
-      .path-grid {
+      .identity-grid {
+
         grid-template-columns:
-          repeat(2, 1fr);
+          1fr 1fr;
+
+      }
+
+      .quote-section {
+        min-height: 580px;
+      }
+
+      .product-visual {
+
+        max-width: 650px;
+
+        margin-inline: auto;
+
+      }
+
+      .product-copy {
+
+        max-width: 650px;
+
+        margin-inline: auto;
+
       }
 
     }
 
 
-    @media (max-width: 650px) {
+    /* =========================================================
+       MOBILE
+       ========================================================= */
+
+    @media
+    (max-width: 620px) {
+
+      :root {
+        --section-space: 68px;
+      }
+
+      html {
+        scroll-padding-top: 80px;
+      }
 
       .container {
 
@@ -1887,47 +2362,39 @@
 
       }
 
-      .section {
-
-        padding:
-          72px 0;
-
-      }
-
       .nav {
-
-        min-height:
-          70px;
-
-      }
-
-      .nav .button {
-
-        min-height:
-          40px;
-
-        padding:
-          0 15px;
-
-        font-size:
-          .78rem;
-
+        min-height: 70px;
       }
 
       .brand strong {
 
-        font-size:
-          .78rem;
+        font-size: .75rem;
+
+      }
+
+      .brand span {
+
+        font-size: .48rem;
+
+      }
+
+      .mobile-menu {
+
+        padding:
+          0 14px 14px;
 
       }
 
       .hero {
 
-        min-height:
-          auto;
-
         padding:
-          115px 0 65px;
+          105px 0 58px;
+
+      }
+
+      .hero-kicker {
+
+        font-size: .64rem;
 
       }
 
@@ -1935,50 +2402,70 @@
 
         font-size:
           clamp(
-            4rem,
-            19vw,
-            6rem
+            3.8rem,
+            20vw,
+            5.6rem
           );
 
       }
 
-      .hero-actions,
-      .final-buttons {
+      .hero-subtitle {
 
-        flex-direction:
-          column;
+        margin-top: 28px;
+
+        font-size: 1.52rem;
 
       }
 
-      .hero-actions .button,
-      .final-buttons .button {
+      .hero-description {
 
-        width:
-          100%;
+        font-size: .98rem;
+
+      }
+
+      .hero-actions {
+
+        display: grid;
+
+        grid-template-columns: 1fr;
+
+      }
+
+      .hero-actions .button {
+
+        width: 100%;
+
+      }
+
+      .hero-note {
+
+        line-height: 1.5;
 
       }
 
       .hero-visual {
 
-        min-height:
-          430px;
+        padding-top: 35px;
+
+      }
+
+      .hero-book {
+
+        width:
+          min(
+            92%,
+            430px
+          );
 
       }
 
       .hero-ring {
 
         width:
-          360px;
-
-        height:
-          360px;
-
-      }
-
-      .hero-book {
-
-        max-width:
-          360px;
+          min(
+            90%,
+            400px
+          );
 
       }
 
@@ -1986,32 +2473,106 @@
 
         font-size:
           clamp(
-            2.4rem,
+            2.3rem,
             13vw,
             4rem
           );
 
       }
 
+      .manifesto-bottom {
+
+        margin-top: 42px;
+
+        padding-top: 30px;
+
+      }
+
+      .skills-header {
+        margin-bottom: 40px;
+      }
+
       .skills-box {
 
-        min-height:
-          580px;
+        min-height: 540px;
+
+        border-radius: 22px;
 
       }
 
       .skill {
 
-        font-size:
-          .7rem;
-
         padding:
-          8px 12px;
+          7px 11px;
+
+        font-size: .66rem;
 
       }
 
-      .identity-grid,
+      .skill.one {
+        top: 9%;
+        left: 4%;
+      }
+
+      .skill.two {
+        top: 18%;
+        right: 4%;
+      }
+
+      .skill.three {
+        bottom: 12%;
+        left: 4%;
+      }
+
+      .skill.four {
+        bottom: 6%;
+        right: 4%;
+      }
+
+      .skill.five {
+        top: 4%;
+        left: 42%;
+      }
+
+      .skill.six {
+        top: 64%;
+        right: 3%;
+      }
+
+      .skills-center h3 {
+
+        font-size:
+          clamp(
+            2.7rem,
+            14vw,
+            4.5rem
+          );
+
+      }
+
+      .inside-row {
+
+        padding:
+          17px 0;
+
+      }
+
       .path-grid {
+
+        grid-template-columns:
+          1fr;
+
+      }
+
+      .path-card {
+
+        min-height: 210px;
+
+        padding: 24px;
+
+      }
+
+      .identity-grid {
 
         grid-template-columns:
           1fr;
@@ -2020,54 +2581,170 @@
 
       .identity-card {
 
-        min-height:
-          235px;
+        min-height: 225px;
+
+        padding: 26px;
 
       }
 
       .identity-card h3 {
 
-        margin-top:
-          45px;
+        margin-top: 42px;
+
+      }
+
+      .identity-result {
+
+        padding: 22px;
+
+      }
+
+      .identity-result .button {
+
+        width: 100%;
 
       }
 
       .quote-section {
 
-        min-height:
-          540px;
+        min-height: 500px;
+
+      }
+
+      .quote {
+
+        font-size:
+          clamp(
+            3.3rem,
+            18vw,
+            5.5rem
+          );
+
+      }
+
+      .truth-card {
+
+        padding: 25px;
 
       }
 
       .product-visual {
 
+        padding: 20px;
+
+        border-radius: 22px;
+
+      }
+
+      .product-copy .button {
+
+        width: 100%;
+
+      }
+
+      .faq-question {
+
+        min-height: 68px;
+
+        font-size: .98rem;
+
+      }
+
+      .faq-answer-inner {
+
         padding:
-          20px;
+          0 10px 24px 0;
+
+      }
+
+      .final-cta {
+
+        padding:
+          95px 0;
+
+      }
+
+      .final-buttons {
+
+        display: grid;
+
+        grid-template-columns: 1fr;
+
+      }
+
+      .final-buttons .button {
+
+        width: 100%;
 
       }
 
       .footer-inner {
 
-        flex-direction:
-          column;
+        align-items: flex-start;
 
-        align-items:
-          flex-start;
+        flex-direction: column;
 
       }
 
     }
 
 
-    @media (prefers-reduced-motion: reduce) {
+    /* =========================================================
+       VERY SMALL PHONES
+       ========================================================= */
+
+    @media
+    (max-width: 380px) {
+
+      .container {
+
+        width:
+          calc(100% - 22px);
+
+      }
+
+      .hero h1 {
+
+        font-size:
+          3.45rem;
+
+      }
+
+      .button {
+
+        padding:
+          0 20px;
+
+      }
+
+      .skill {
+
+        font-size: .6rem;
+
+      }
+
+    }
+
+
+    /* =========================================================
+       REDUCED MOTION
+       ========================================================= */
+
+    @media
+    (prefers-reduced-motion: reduce) {
 
       html {
         scroll-behavior: auto;
       }
 
-      * {
+      *,
+      *::before,
+      *::after {
+
         animation: none !important;
+
         transition: none !important;
+
       }
 
     }
@@ -2084,9 +2761,10 @@
        NAVIGATION
        ======================================================= -->
 
-  <header>
+  <header class="site-header">
 
     <div class="container nav">
+
 
       <a
         href="#top"
@@ -2104,7 +2782,10 @@
       </a>
 
 
-      <nav class="nav-links">
+      <nav
+        class="nav-center"
+        aria-label="Primary navigation"
+      >
 
         <a href="#inside">
           Inside the Book
@@ -2127,14 +2808,66 @@
 
       <a
         href="https://www.jupiterslab.com/product-page/hella-skillz-practical-guide-to-turning-what-you-know-into-what-youre-worth"
-        class="button button-primary"
+        class="button button-primary nav-buy"
       >
         Get Hella Skillz
       </a>
 
+
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+      >
+
+        <span class="menu-lines">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+
+      </button>
+
+
     </div>
 
+
+    <nav
+      class="mobile-menu"
+      id="mobileMenu"
+      aria-label="Mobile navigation"
+    >
+
+      <a href="#inside">
+        Inside the Book
+      </a>
+
+      <a href="#for-you">
+        Who It's For
+      </a>
+
+      <a href="#about">
+        About Jey
+      </a>
+
+      <a href="#faq">
+        FAQ
+      </a>
+
+      <a
+        href="https://www.jupiterslab.com/product-page/hella-skillz-practical-guide-to-turning-what-you-know-into-what-youre-worth"
+        class="mobile-buy"
+      >
+        Get Hella Skillz
+      </a>
+
+    </nav>
+
+
   </header>
+
 
 
   <main>
@@ -2142,8 +2875,9 @@
 
     <!-- =====================================================
          HERO
+         
          IMAGE 1
-         HELLA skills book cover 2.png
+         ChatGPT Image Aug 26, 2026 at 01_24_23 PM.png
          ===================================================== -->
 
     <section
@@ -2154,10 +2888,13 @@
       <div class="container hero-grid">
 
 
-        <div>
+        <div class="hero-copy">
+
 
           <div class="hero-kicker">
+
             Jupiter's Lab Creative Studio Presents
+
           </div>
 
 
@@ -2196,6 +2933,7 @@
 
           <div class="hero-actions">
 
+
             <a
               href="https://www.jupiterslab.com/product-page/hella-skillz-practical-guide-to-turning-what-you-know-into-what-youre-worth"
               class="button button-primary"
@@ -2211,6 +2949,7 @@
               See What's Inside
             </a>
 
+
           </div>
 
 
@@ -2221,10 +2960,13 @@
 
           </div>
 
+
         </div>
 
 
+
         <div class="hero-visual">
+
 
           <div class="hero-glow"></div>
 
@@ -2232,10 +2974,11 @@
 
 
           <img
-            src="./assets/HELLA%20skills%20book%20cover%202.png"
-            alt="Hella Skillz ebook cover"
+            src="./assets/ChatGPT%20Image%20Aug%2026%2C%202026%20at%2001_24_23%20PM.png"
+            alt="Hella Skillz ebook displayed on a tablet"
             class="hero-book"
           >
+
 
         </div>
 
@@ -2247,7 +2990,7 @@
 
 
     <!-- =====================================================
-         OLD FORMULA
+         MANIFESTO
          ===================================================== -->
 
     <section class="section manifesto">
@@ -2259,11 +3002,14 @@
 
 
           <div class="manifesto-label">
+
             The old formula
+
           </div>
 
 
           <div class="manifesto-lines">
+
 
             <div class="manifesto-line dim">
               Get a degree.
@@ -2281,6 +3027,7 @@
               Hope somebody notices.
             </div>
 
+
           </div>
 
 
@@ -2290,8 +3037,8 @@
         <div class="manifesto-bottom">
 
           Nobody taught you how to identify,
-          combine and package what you already
-          know into something
+          combine and package what you already know
+          into something
 
           <span>
             valuable.
@@ -2307,7 +3054,7 @@
 
 
     <!-- =====================================================
-         SKILLS
+         YOUR SKILL STACK
          ===================================================== -->
 
     <section class="section">
@@ -2316,6 +3063,7 @@
 
 
         <div class="skills-header">
+
 
           <div class="eyebrow">
             Your skill stack
@@ -2340,7 +3088,9 @@
 
           </p>
 
+
         </div>
+
 
 
         <div class="skills-box">
@@ -2373,9 +3123,11 @@
 
           <div class="skills-center">
 
+
             <small>
               The missing piece
             </small>
+
 
             <h3>
 
@@ -2383,6 +3135,7 @@
               saw the system.
 
             </h3>
+
 
           </div>
 
@@ -2398,6 +3151,7 @@
 
     <!-- =====================================================
          INSIDE THE BOOK
+
          IMAGE 2
          ChatGPT Image Jul 9, 2026, 02_19_08 PM.png
          ===================================================== -->
@@ -2418,12 +3172,13 @@
 
           <img
             src="./assets/ChatGPT%20Image%20Jul%209%2C%202026%2C%2002_19_08%20PM.png"
-            alt="Hella Skillz digital ebook shown across devices"
+            alt="Hella Skillz digital book shown across devices"
             class="product-image"
           >
 
 
         </div>
+
 
 
         <div>
@@ -2445,10 +3200,11 @@
 
           <p class="section-copy">
 
-            It's about learning what to do with
-            what you've already built.
+            It's about learning what to do
+            with what you've already built.
 
           </p>
+
 
 
           <div class="inside-list">
@@ -2566,45 +3322,57 @@
         </h2>
 
 
+
         <div class="path-grid">
 
 
           <article class="path-card">
 
+
             <small>
               01
             </small>
 
+
             <div>
+
 
               <h3>
                 See your skills.
               </h3>
 
+
               <p>
 
-                Stop describing yourself only by
-                the roles someone else hired you
-                to perform.
+                Stop describing yourself only
+                by the roles someone else hired
+                you to perform.
 
               </p>
 
+
             </div>
+
 
           </article>
 
 
+
           <article class="path-card">
+
 
             <small>
               02
             </small>
 
+
             <div>
+
 
               <h3>
                 Stack your skills.
               </h3>
+
 
               <p>
 
@@ -2613,22 +3381,29 @@
 
               </p>
 
+
             </div>
+
 
           </article>
 
 
+
           <article class="path-card">
+
 
             <small>
               03
             </small>
 
+
             <div>
+
 
               <h3>
                 Choose a direction.
               </h3>
+
 
               <p>
 
@@ -2637,71 +3412,91 @@
 
               </p>
 
+
             </div>
+
 
           </article>
 
 
+
           <article class="path-card">
+
 
             <small>
               04
             </small>
 
+
             <div>
+
 
               <h3>
                 Package the value.
               </h3>
 
+
               <p>
 
                 Turn what you can do into something
-                another person can understand
-                and buy.
+                another person can understand and buy.
 
               </p>
 
+
             </div>
+
 
           </article>
 
 
+
           <article class="path-card">
+
 
             <small>
               05
             </small>
 
+
             <div>
+
 
               <h3>
                 Protect the work.
               </h3>
 
+
               <p>
 
-                Learn where your offer ends before
-                scope creep decides for you.
+                Learn where your offer ends
+                before scope creep decides for you.
 
               </p>
 
+
             </div>
+
 
           </article>
 
 
+
           <article class="path-card">
+
 
             <small>
               06
             </small>
 
+
             <div>
+
 
               <h3>
                 Build the system.
               </h3>
+
 
               <p>
 
@@ -2710,7 +3505,9 @@
 
               </p>
 
+
             </div>
+
 
           </article>
 
@@ -2725,7 +3522,7 @@
 
 
     <!-- =====================================================
-         WHICH ONE ARE YOU
+         WHICH ONE ARE YOU?
          ===================================================== -->
 
     <section class="section">
@@ -2735,24 +3532,29 @@
 
         <div class="identity-header">
 
+
           <div class="eyebrow">
             Pick the one that sounds familiar
           </div>
 
 
           <h2 class="section-title">
+
             Which one are you?
+
           </h2>
 
 
           <p class="section-copy">
 
-            Tap the statement that sounds
-            most like where you are right now.
+            Tap the statement that sounds most like
+            where you are right now.
 
           </p>
 
+
         </div>
+
 
 
         <div class="identity-grid">
@@ -2760,6 +3562,7 @@
 
           <button
             class="identity-card"
+            type="button"
             data-message="You don't need to become more talented. You need a structure that turns what you already know into something clear enough to use and sell."
           >
 
@@ -2777,9 +3580,11 @@
           </button>
 
 
+
           <button
             class="identity-card"
-            data-message="Being underpaid is not always about working harder. Sometimes your value has never been translated into a clear position, offer or system."
+            type="button"
+            data-message="Being underpaid is not always about working harder. Sometimes your value has never been translated into a clear position, offer, or system."
           >
 
             <small>
@@ -2796,8 +3601,10 @@
           </button>
 
 
+
           <button
             class="identity-card"
+            type="button"
             data-message="Knowing how to perform a job and knowing how to turn those abilities into something valuable outside of that job are different skills."
           >
 
@@ -2815,8 +3622,10 @@
           </button>
 
 
+
           <button
             class="identity-card"
+            type="button"
             data-message="You may not need another idea. You may need to stop starting over and build around the skills that have already followed you everywhere."
           >
 
@@ -2826,8 +3635,8 @@
 
             <h3>
 
-              “I've tried different ideas, but
-              nothing feels like the thing.”
+              “I've tried different ideas,
+              but nothing feels like the thing.”
 
             </h3>
 
@@ -2837,14 +3646,20 @@
         </div>
 
 
+
         <div
           class="identity-result"
           id="identityResult"
+          aria-live="polite"
         >
 
+
           <strong>
+
             That's exactly what Hella Skillz addresses.
+
           </strong>
+
 
           <span id="identityMessage"></span>
 
@@ -2875,6 +3690,7 @@
 
     <section class="section quote-section">
 
+
       <div class="container">
 
 
@@ -2893,6 +3709,7 @@
 
       </div>
 
+
     </section>
 
 
@@ -2905,6 +3722,7 @@
       class="section"
       id="for-you"
     >
+
 
       <div class="container for-grid">
 
@@ -2926,11 +3744,14 @@
 
 
           <p class="section-copy">
+
             That's the point.
+
           </p>
 
 
         </div>
+
 
 
         <div class="truth-list">
@@ -2938,33 +3759,40 @@
 
           <article class="truth-card">
 
+
             <div class="truth-number">
               01
             </div>
 
+
             <h3>
 
-              You've built experience across
-              multiple lanes.
+              You've built experience
+              across multiple lanes.
 
             </h3>
+
 
             <p>
 
               Your resume may look scattered,
-              but the way you think, solve problems
+              but the way you think, solve problems,
               and execute has a pattern.
 
             </p>
 
+
           </article>
+
 
 
           <article class="truth-card">
 
+
             <div class="truth-number">
               02
             </div>
+
 
             <h3>
 
@@ -2972,6 +3800,7 @@
               “the talented one.”
 
             </h3>
+
 
             <p>
 
@@ -2983,14 +3812,18 @@
 
             </p>
 
+
           </article>
+
 
 
           <article class="truth-card">
 
+
             <div class="truth-number">
               03
             </div>
+
 
             <h3>
 
@@ -2999,24 +3832,28 @@
 
             </h3>
 
+
             <p>
 
               Not another random side hustle.
 
               Something connected to the knowledge,
-              experience and abilities you've
-              already earned.
+              experience, and abilities you've already earned.
 
             </p>
+
 
           </article>
 
 
+
           <article class="truth-card">
+
 
             <div class="truth-number">
               04
             </div>
+
 
             <h3>
 
@@ -3024,6 +3861,7 @@
               without direction.
 
             </h3>
+
 
             <p>
 
@@ -3034,6 +3872,7 @@
 
             </p>
 
+
           </article>
 
 
@@ -3042,16 +3881,18 @@
 
       </div>
 
+
     </section>
 
 
 
     <!-- =====================================================
          PRODUCT CTA
-         USES SECOND IMAGE AGAIN
+         IMAGE 2 REUSED
          ===================================================== -->
 
     <section class="section product">
+
 
       <div class="container product-grid">
 
@@ -3066,6 +3907,7 @@
 
 
         </div>
+
 
 
         <div class="product-copy">
@@ -3086,14 +3928,14 @@
 
           <p>
 
-            Hella Skillz was written for people
-            who know they are capable of more
-            but have struggled to explain exactly
-            what they do, what they should build,
-            or how their experience translates
-            into value.
+            Hella Skillz was written for people who know
+            they are capable of more but have struggled
+            to explain exactly what they do, what they
+            should build, or how their experience
+            translates into value.
 
           </p>
+
 
 
           <div class="product-points">
@@ -3105,8 +3947,9 @@
                 ✓
               </span>
 
-              Practical language,
-              not business-school jargon
+              <span>
+                Practical language, not business-school jargon
+              </span>
 
             </div>
 
@@ -3117,8 +3960,9 @@
                 ✓
               </span>
 
-              Built around skills
-              you already have
+              <span>
+                Built around skills you already have
+              </span>
 
             </div>
 
@@ -3129,8 +3973,9 @@
                 ✓
               </span>
 
-              Helps you move from
-              ideas to direction
+              <span>
+                Helps you move from ideas to direction
+              </span>
 
             </div>
 
@@ -3141,13 +3986,15 @@
                 ✓
               </span>
 
-              Built for multi-skilled
-              people and builders
+              <span>
+                Built for multi-skilled people and builders
+              </span>
 
             </div>
 
 
           </div>
+
 
 
           <a
@@ -3163,13 +4010,13 @@
 
       </div>
 
+
     </section>
 
 
 
     <!-- =====================================================
          ABOUT
-         NO IMAGE PLACEHOLDER
          ===================================================== -->
 
     <section
@@ -3177,11 +4024,14 @@
       id="about"
     >
 
+
       <div class="container">
 
 
         <div class="eyebrow">
+
           About the author
+
         </div>
 
 
@@ -3194,16 +4044,16 @@
         </h2>
 
 
+
         <div class="author-copy">
 
 
           <p>
 
-            A person can know how to lead,
-            build, troubleshoot, communicate,
-            organize, create and solve problems
-            and still have no idea how those
-            abilities fit together.
+            A person can know how to lead, build,
+            troubleshoot, communicate, organize,
+            create, and solve problems and still
+            have no idea how those abilities fit together.
 
           </p>
 
@@ -3237,6 +4087,7 @@
         </div>
 
 
+
         <div class="author-name">
 
           Jeylechia Kirkland
@@ -3249,6 +4100,7 @@
 
 
       </div>
+
 
     </section>
 
@@ -3263,6 +4115,7 @@
       id="faq"
     >
 
+
       <div class="container faq-grid">
 
 
@@ -3275,11 +4128,14 @@
 
 
           <h2 class="section-title">
+
             Before you buy.
+
           </h2>
 
 
         </div>
+
 
 
         <div class="faq-list">
@@ -3288,7 +4144,10 @@
           <div class="faq-item">
 
 
-            <button class="faq-question">
+            <button
+              class="faq-question"
+              type="button"
+            >
 
               <span>
                 Who is Hella Skillz written for?
@@ -3303,16 +4162,17 @@
 
             <div class="faq-answer">
 
+
               <div class="faq-answer-inner">
 
-                Hella Skillz is for multi-skilled
-                people, professionals, creators,
-                entrepreneurs and builders who know
-                they have valuable experience but
-                struggle to organize those abilities
-                into a clear direction.
+                Hella Skillz is for multi-skilled people,
+                professionals, creators, entrepreneurs,
+                and builders who know they have valuable
+                experience but struggle to organize those
+                abilities into a clear direction.
 
               </div>
+
 
             </div>
 
@@ -3320,10 +4180,14 @@
           </div>
 
 
+
           <div class="faq-item">
 
 
-            <button class="faq-question">
+            <button
+              class="faq-question"
+              type="button"
+            >
 
               <span>
                 Do I need to already own a business?
@@ -3338,14 +4202,16 @@
 
             <div class="faq-answer">
 
+
               <div class="faq-answer-inner">
 
                 No. The book begins before the business.
                 It helps you understand your skills,
-                identify patterns and determine what
+                identify patterns, and determine what
                 those abilities could become.
 
               </div>
+
 
             </div>
 
@@ -3353,10 +4219,14 @@
           </div>
 
 
+
           <div class="faq-item">
 
 
-            <button class="faq-question">
+            <button
+              class="faq-question"
+              type="button"
+            >
 
               <span>
                 Is this only for entrepreneurs?
@@ -3371,15 +4241,16 @@
 
             <div class="faq-answer">
 
+
               <div class="faq-answer-inner">
 
-                No. The concepts can also help you
-                understand your professional value,
-                describe your abilities more clearly,
-                and make better decisions about
+                No. The concepts can also help you understand
+                your professional value, describe your abilities
+                more clearly, and make better decisions about
                 where your skills belong.
 
               </div>
+
 
             </div>
 
@@ -3387,10 +4258,14 @@
           </div>
 
 
+
           <div class="faq-item">
 
 
-            <button class="faq-question">
+            <button
+              class="faq-question"
+              type="button"
+            >
 
               <span>
                 What format is the book?
@@ -3405,6 +4280,7 @@
 
             <div class="faq-answer">
 
+
               <div class="faq-answer-inner">
 
                 Hella Skillz is a digital book designed
@@ -3413,16 +4289,21 @@
 
               </div>
 
+
             </div>
 
 
           </div>
 
 
+
           <div class="faq-item">
 
 
-            <button class="faq-question">
+            <button
+              class="faq-question"
+              type="button"
+            >
 
               <span>
                 Is this another motivational ebook?
@@ -3436,6 +4317,7 @@
 
 
             <div class="faq-answer">
+
 
               <div class="faq-answer-inner">
 
@@ -3451,6 +4333,7 @@
 
               </div>
 
+
             </div>
 
 
@@ -3462,6 +4345,7 @@
 
       </div>
 
+
     </section>
 
 
@@ -3472,14 +4356,13 @@
 
     <section class="final-cta">
 
+
       <div class="container">
 
 
         <div class="text-logo">
 
-          Jupiter's Lab
-          ·
-          Creative Studio
+          Jupiter's Lab · Creative Studio
 
         </div>
 
@@ -3501,6 +4384,7 @@
           understanding what they're building toward.
 
         </p>
+
 
 
         <div class="final-buttons">
@@ -3527,6 +4411,7 @@
 
       </div>
 
+
     </section>
 
 
@@ -3540,13 +4425,13 @@
 
   <footer>
 
+
     <div class="container footer-inner">
 
 
       <div>
 
-        ©
-        <span id="year"></span>
+        © <span id="year"></span>
 
         Jupiter's Lab Creative Studio.
         All rights reserved.
@@ -3554,20 +4439,27 @@
       </div>
 
 
+
       <div class="footer-links">
 
 
-        <a href="https://www.jupiterslab.com">
+        <a
+          href="https://www.jupiterslab.com"
+        >
           jupiterslab.com
         </a>
 
 
-        <a href="https://www.jupiterslab.com/privacy">
+        <a
+          href="https://www.jupiterslab.com/privacy"
+        >
           Privacy
         </a>
 
 
-        <a href="https://www.jupiterslab.com/terms-conditions">
+        <a
+          href="https://www.jupiterslab.com/terms-conditions"
+        >
           Terms
         </a>
 
@@ -3576,6 +4468,7 @@
 
 
     </div>
+
 
   </footer>
 
@@ -3588,7 +4481,9 @@
   <script>
 
 
-    /* CURRENT YEAR */
+    /* =========================================================
+       YEAR
+       ========================================================= */
 
     document.getElementById("year").textContent =
       new Date().getFullYear();
@@ -3596,7 +4491,73 @@
 
 
     /* =========================================================
-       WHICH ONE ARE YOU
+       MOBILE MENU
+       ========================================================= */
+
+    const menuToggle =
+      document.getElementById(
+        "menuToggle"
+      );
+
+
+    const mobileMenu =
+      document.getElementById(
+        "mobileMenu"
+      );
+
+
+    menuToggle.addEventListener(
+      "click",
+      () => {
+
+
+        const isOpen =
+          mobileMenu.classList.toggle(
+            "open"
+          );
+
+
+        menuToggle.setAttribute(
+          "aria-expanded",
+          isOpen
+        );
+
+
+      }
+    );
+
+
+    mobileMenu
+      .querySelectorAll("a")
+      .forEach(link => {
+
+
+        link.addEventListener(
+          "click",
+          () => {
+
+
+            mobileMenu.classList.remove(
+              "open"
+            );
+
+
+            menuToggle.setAttribute(
+              "aria-expanded",
+              "false"
+            );
+
+
+          }
+        );
+
+
+      });
+
+
+
+    /* =========================================================
+       IDENTITY CARDS
        ========================================================= */
 
     const identityCards =
@@ -3628,8 +4589,10 @@
           identityCards.forEach(
             item => {
 
+
               item.style.borderColor =
                 "rgba(255,255,255,.12)";
+
 
             }
           );
@@ -3652,6 +4615,7 @@
           setTimeout(
             () => {
 
+
               identityResult.scrollIntoView({
 
                 behavior: "smooth",
@@ -3660,10 +4624,9 @@
 
               });
 
+
             },
-
-            100
-
+            80
           );
 
 
@@ -3676,7 +4639,7 @@
 
 
     /* =========================================================
-       FAQ
+       FAQ ACCORDION
        ========================================================= */
 
     const faqItems =
@@ -3702,10 +4665,10 @@
 
       question.addEventListener(
         "click",
-        function() {
+        () => {
 
 
-          const alreadyOpen =
+          const isOpen =
             item.classList.contains(
               "open"
             );
@@ -3720,16 +4683,21 @@
               );
 
 
-              other.querySelector(
-                ".faq-answer"
-              ).style.maxHeight = null;
+              const otherAnswer =
+                other.querySelector(
+                  ".faq-answer"
+                );
+
+
+              otherAnswer.style.maxHeight =
+                null;
 
 
             }
           );
 
 
-          if (!alreadyOpen) {
+          if (!isOpen) {
 
 
             item.classList.add(
